@@ -16,6 +16,7 @@ export const deleteItemToBoard = (data: {}) => ({
 });
 
 const initialState = {
+    counter: 3,
     board: [
         {
             columnTitle: 'First Column',
