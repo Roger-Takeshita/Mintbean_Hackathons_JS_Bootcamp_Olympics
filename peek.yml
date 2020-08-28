@@ -2,4 +2,4 @@ version: 2
 main:
   type: static
   path: /public
-  spa: false
+  spa: true
