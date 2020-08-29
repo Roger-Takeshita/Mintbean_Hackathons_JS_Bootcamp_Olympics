@@ -28,29 +28,30 @@ const App: React.FC<any> = ({ columns, items }) => {
     //     });
     // };
 
-    const onDropItem = (
-        item: Item,
-        monitor: DropTargetMonitor,
-        newColumnId: number
-    ) => {
-        setBoardItems((prevState) => {
-            const newItems = prevState
-                .filter((each) => each.itemTitle !== item.itemTitle)
-                .concat({ ...item, columnId: newColumnId });
-            return [...newItems];
-        });
-    };
+    // const onDropItem = (
+    //     item: Item,
+    //     monitor: DropTargetMonitor,
+    //     newColumnId: number
+    // ) => {
+    //     setBoardItems((prevState) => {
+    //         const newItems = prevState
+    //             .filter((each) => each.itemTitle !== item.itemTitle)
+    //             .concat({ ...item, columnId: newColumnId });
+    //         return [...newItems];
+    //     });
+    // };
 
-    const moveCol = (dragIndex: number, hoverIndex: number) => {
-        const col = boardColumns![dragIndex];
-        setBoardColumns((prevState) => {
-            const newColumns = prevState.filter(
-                (item, idx) => idx !== dragIndex
-            );
-            newColumns.splice(hoverIndex, 0, col);
-            return [...newColumns];
-        });
-    };
+    // const onDropColumn = (
+    //     column: Column,
+    //     monitor: DropTargetMonitor
+    // ) => {
+    //     setBoardItems((prevState) => {
+    //         const newItems = prevState
+    //             .filter((each) => each.itemTitle !== item.itemTitle)
+    //             .concat({ ...item, columnId: newColumnId });
+    //         return [...newItems];
+    //     });
+    // };
 
     return (
         <div className="App">
@@ -62,7 +63,8 @@ const App: React.FC<any> = ({ columns, items }) => {
                     {board.board.map()}
                 </ColumnWrapper> */}
                 <div>
-                    <ItemsWrapper columnId={0} onDropItem={onDropItem} />
+                    {/* <ItemsWrapper columnId={0} onDropItem={onDropItem} /> */}
+                    <ColumnWrapper />
                 </div>
             </main>
             <footer>

@@ -33,14 +33,14 @@ const ItemsWrapper: React.FC<ItemsWrapperProps> = ({
     return (
         <div ref={drop} className="item-wrapper">
             {items
-                // .filter(item => item.columnId === )
+                .filter(item => item.columnId === columnId)
                 .map((item, idx) => (
                     <ItemComponent
                         key={idx}
                         item={item}
                         index={idx}
                         moveIt={moveItem}
-                        columnId={0}
+                        columnId={columnId}
                     />
                 ))}
         </div>

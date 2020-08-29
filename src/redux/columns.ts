@@ -1,3 +1,4 @@
+import { MoveItProps, Column } from "../utils/types";
 const ADD_COLUMN = 'ADD_COLUMN';
 const DELETE_COLUMN = 'DELETE_COLUMN';
 const UPDATE_COLUMN = 'UPDATE_COLUMN';
@@ -6,7 +7,7 @@ export const addColumn = (data: {}) => ({
     type: ADD_COLUMN,
     payload: data,
 });
-export const updateColumn = (data: {}) => ({
+export const updateColumn = (data: MoveItProps) => ({
     type: UPDATE_COLUMN,
     payload: data,
 });
@@ -32,13 +33,21 @@ const initialState = [
 
 function columnsReducer(
     state = initialState,
-    action: { type: string; payload: {} }
+    action: { type: string; payload: MoveItProps }
 ) {
     switch (action.type) {
         case ADD_COLUMN:
             return state;
         case UPDATE_COLUMN:
-            return state;
+            const nextColumn = state.filter(
+                (column, idx) => idx !== action.payload.dragIndex
+            );
+            nextColumn.splice(
+                action.payload.hoverIndex!,
+                0,
+                state[action.payload.dragIndex!]
+            );
+            return [...nextColumn];
         case DELETE_COLUMN:
             return state;
         default:

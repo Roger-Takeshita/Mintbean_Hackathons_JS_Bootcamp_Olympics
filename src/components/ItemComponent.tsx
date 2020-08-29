@@ -10,20 +10,18 @@ const ItemComponent: React.FC<ItemProps> = ({
     columnId,
 }) => {
     const ref = useRef<HTMLDivElement>(null);
+    const [show, setShow] = useState(false);
 
     const [, drop] = useDrop({
         accept: ITEM_TYPE,
         hover(item: DragItem, monitor: DropTargetMonitor) {
-            if (!ref.current) {
-                return;
-            }
+            if (!ref.current) return;
 
             const dragIndex = item.index;
             const hoverIndex = index;
 
-            if (dragIndex === hoverIndex) {
-                return;
-            }
+            if (dragIndex === hoverIndex) return;
+
 
             const hoveredRect = ref.current?.getBoundingClientRect();
             const hoverMiddleY = (hoveredRect.bottom - hoveredRect.top) / 2;
@@ -45,10 +43,10 @@ const ItemComponent: React.FC<ItemProps> = ({
         }),
     });
 
-    const [show, setShow] = useState(false);
     const onOpen = () => {
         setShow(true);
     };
+
     const onClose = () => {
         setShow(false);
     };
