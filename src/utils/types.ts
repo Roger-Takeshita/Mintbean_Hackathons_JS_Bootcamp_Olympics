@@ -1,4 +1,4 @@
-import { DropTargetMonitor } from "react-dnd";
+import { DropTargetMonitor } from 'react-dnd';
 
 export const ITEM_TYPE = 'ITEM';
 export const COLUMN_TYPE = 'COLUMN';
@@ -7,18 +7,18 @@ export interface Item {
     itemTitle: string;
     itemDescription: string;
     columnId: number;
-};
+}
 
 export interface Column {
-    columnId: number,
+    columnId: number;
     columnTitle: string;
-};
+}
 
 export interface ColumnWrapperProps {
     // onDropColumn: (item: any, monitor: DropTargetMonitor, columnId: number) => void;
     columns: Column[];
     updateColumn: (data: MoveItProps) => void;
-};
+}
 
 export interface ItemsWrapperProps {
     onDropItem: (
@@ -29,7 +29,7 @@ export interface ItemsWrapperProps {
     columnId: number;
     items: Item[];
     updateItem: (data: MoveItProps) => void;
-};
+}
 
 export interface MoveItProps {
     dragIndex?: number;
@@ -45,20 +45,20 @@ export interface ColumnProps extends BaseColumnItemProps {
     isOver: boolean;
     column: Column;
     columns: Column[];
-    updateItemColumn: (item: any, columnId: number) => void;
-};
+    updateItemColumn: (data: ItemReducer) => void;
+}
 
 export interface ItemProps extends BaseColumnItemProps {
     item: Item;
     columnId: number;
-};
+}
 
 export interface DragItem extends Item {
     index: number;
     type: string;
-};
+}
 
-export interface ColumnItem extends DragItem { };
+export interface ColumnItem extends DragItem {}
 
 export interface WindowProps {
     show: boolean;
@@ -66,6 +66,13 @@ export interface WindowProps {
     item: Item;
 }
 
-export interface ItemReducer extends MoveItProps, Item {
+export interface ItemReducer {
     idx?: number;
+    newColumnId?: number;
+    itemTitle?: string;
+    itemDescription?: string;
+    columnId?: number;
+    item?: Item;
+    dragIndex?: number;
+    hoverIndex?: number;
 }

@@ -1,15 +1,15 @@
-import { MoveItProps, Item, ItemReducer } from '../utils/types';
+import { MoveItProps, Item, ItemReducer, ColumnProps } from '../utils/types';
 const ADD_ITEM = 'ADD_ITEM';
 const DELETE_ITEM = 'DELETE_ITEM';
 const UPDATE_ITEM = 'UPDATE_ITEM';
 const UPDATE_ITEM_COLUMN = 'UPDATE_ITEM_COLUMN';
 
-export const addItem = (data: Item) => ({
+export const addItem = (data: ItemReducer) => ({
     type: ADD_ITEM,
     payload: data,
 });
 
-export const updateItem = (data: MoveItProps) => ({
+export const updateItem = (data: ItemReducer) => ({
     type: UPDATE_ITEM,
     payload: data,
 });
@@ -19,13 +19,12 @@ export const updateItemColumn = (data: ItemReducer) => ({
     payload: data,
 });
 
-export const deleteItem = (idx: number) => ({
+export const deleteItem = (idx: ItemReducer) => ({
     type: DELETE_ITEM,
     payload: idx,
 });
 
-
-const initialState:Item[] = [
+const initialState: Item[] = [
     {
         columnId: 0,
         itemTitle: 'First Item of column 1x1',
@@ -71,11 +70,11 @@ const initialState:Item[] = [
         itemTitle: 'Third Item of column 3x3',
         itemDescription: 'Description 3x3',
     },
-]
+];
 
 function itemsReducer(
     state = initialState,
-    action: { type: string; payload: ItemReducer}
+    action: { type: string; payload: ItemReducer }
 ) {
     switch (action.type) {
         case ADD_ITEM:
@@ -88,14 +87,19 @@ function itemsReducer(
                 action.payload.hoverIndex!,
                 0,
                 state[action.payload.dragIndex!]
-                );
-                return [...nextItem];
+            );
+            return [...nextItem];
         case UPDATE_ITEM_COLUMN:
+            console.log('payload', action.payload);
+            console.log('newColumnId', action.payload.newColumnId);
             const nextItemColumn = state
                 .filter((each) => {
-                    return each.itemTitle !== action.payload.itemTitle
+                    return each.itemTitle !== action.payload.item!.itemTitle;
                 })
-                .concat({ ...action.payload!, columnId: action.payload.columnId! });
+                .concat({
+                    ...action.payload.item!,
+                    columnId: action.payload.newColumnId!,
+                });
             return [...nextItemColumn];
         case DELETE_ITEM:
             return state;

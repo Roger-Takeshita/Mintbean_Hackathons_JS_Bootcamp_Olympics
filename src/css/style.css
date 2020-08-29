@@ -37,14 +37,14 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 30rem;
+  margin: 1rem;
 }
 
 .item__item-box {
-  background-color: lightgray;
-  margin: 1rem;
-  padding: 2rem;
   border: 1px solid #000;
   border-style: dotted;
+  background-color: #e6e6e6;
+  border-radius: 0.5rem;
 }
 
 .item__paragraph--title {
@@ -56,6 +56,11 @@ body {
 .item__paragraph--status {
   font-size: 1.2rem;
   text-align: center;
+}
+
+.col {
+  background-color: #cccccc;
+  border-radius: 0.5rem;
 }
 
 .col-wrapper {
@@ -111,4 +116,3 @@ body {
 .footer__dev-link:hover {
   color: #0084ff;
 }
-/*# sourceMappingURL=style.css.map */
