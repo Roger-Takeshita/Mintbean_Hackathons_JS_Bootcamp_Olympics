@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
-import boardItemsReducer from './redux/boardItems';
+import columnsReducer from './redux/columns';
+import itemsReducer from './redux/items';
 
 const reducers = combineReducers({
-    boardItems: boardItemsReducer,
+    columns: columnsReducer,
+    items: itemsReducer
 });
 
 const store = createStore(reducers, applyMiddleware(logger));

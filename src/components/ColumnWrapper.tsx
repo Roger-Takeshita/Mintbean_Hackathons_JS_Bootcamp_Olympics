@@ -1,16 +1,11 @@
 import React from 'react';
-import './ColumnWrapper.css';
 import { useDrop } from "react-dnd";
-import { COLUMN_TYPE } from '../../types';
+import { COLUMN_TYPE, ColumnWrapperProps } from "../utils/types";
 
-interface ColumnWrapperProps extends React.Component {
-    onDrop: (item: any) => void
-};
-
-const ColumnWrapper: React.FC<ColumnWrapperProps> = ({onDrop}) => {
+const ColumnWrapper: React.FC<ColumnWrapperProps> = ({onDropColumn}) => {
     const [{ isOver, canDrop }, drop] = useDrop({
         accept: COLUMN_TYPE,
-        drop: onDrop,
+        // drop: onDropColumn(item, monitor, columnId),
         //! Usar pra mudar CSS
         // collect: (monitor) => ({
         //     isOver: monitor.isOver(),
