@@ -45,15 +45,6 @@ const App: React.FC<any> = ({ columns, items }) => {
         });
     };
 
-    const moveItem = (dragIndex: number, hoverIndex: number) => {
-        const item = boardItems![dragIndex];
-        setBoardItems((prevState) => {
-            const newItems = prevState.filter((item, idx) => idx !== dragIndex);
-            newItems.splice(hoverIndex, 0, item);
-            return [...newItems];
-        });
-    };
-
     return (
         <div className="App">
             <Header />
@@ -62,13 +53,7 @@ const App: React.FC<any> = ({ columns, items }) => {
                     {board.board.map()}
                 </ColumnWrapper> */}
                 <div>
-                    <ItemsWrapper columnId={0} onDropItem={onDropItem} boardItems={boardItems} moveItem={moveItem}>
-                        {/* {boardItems
-                            // .filter(item => item.columnId === )
-                            .map((item, idx) => 
-                        <ItemComponent key={idx} item={item} index={idx} moveIt={moveItem} columnId={0} />
-                    )} */}
-                        </ItemsWrapper>
+                    <ItemsWrapper columnId={0} onDropItem={onDropItem} />
                 </div>
             </main>
             <footer>

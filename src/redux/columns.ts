@@ -2,15 +2,15 @@ const ADD_COLUMN = 'ADD_COLUMN';
 const DELETE_COLUMN = 'DELETE_COLUMN';
 const UPDATE_COLUMN = 'UPDATE_COLUMN';
 
-export const addItemToBoard = (data: {}) => ({
+export const addColumn = (data: {}) => ({
     type: ADD_COLUMN,
     payload: data,
 });
-export const updateItemToBoard = (data: {}) => ({
+export const updateColumn = (data: {}) => ({
     type: UPDATE_COLUMN,
     payload: data,
 });
-export const deleteItemToBoard = (data: {}) => ({
+export const deleteColumn = (data: {}) => ({
     type: DELETE_COLUMN,
     payload: data,
 });
