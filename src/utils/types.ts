@@ -34,11 +34,12 @@ export interface ItemsWrapperProps {
 export interface MoveItProps {
     dragIndex?: number;
     hoverIndex?: number;
+    item?: any;
 }
 
 export interface BaseColumnItemProps {
     index: number;
-    moveIt: (dragIndex: number, hoverIndex: number) => void;
+    moveIt: (dragIndex: number, hoverIndex: number, item?: any) => void;
 }
 
 export interface ColumnProps extends BaseColumnItemProps {

@@ -83,6 +83,7 @@ function itemsReducer(
             const nextItem = state.filter(
                 (item, idx) => idx !== action.payload.dragIndex
             );
+
             nextItem.splice(
                 action.payload.hoverIndex!,
                 0,
@@ -90,8 +91,6 @@ function itemsReducer(
             );
             return [...nextItem];
         case UPDATE_ITEM_COLUMN:
-            console.log('payload', action.payload);
-            console.log('newColumnId', action.payload.newColumnId);
             const nextItemColumn = state
                 .filter((each) => {
                     return each.itemTitle !== action.payload.item!.itemTitle;

@@ -15,8 +15,6 @@ const App: React.FC<any> = ({ columns, items }) => {
     useEffect(() => {
         setBoardColumns(columns);
         setBoardItems(items);
-        // console.log(boardColumns);
-        // console.log(boardItems);
     }, [columns, items]);
 
     // const onDropColumn = (column: Item, monitor: DropTargetMonitor, newColumnId: number) => {

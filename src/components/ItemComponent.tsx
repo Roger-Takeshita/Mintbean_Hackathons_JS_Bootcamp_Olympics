@@ -22,16 +22,15 @@ const ItemComponent: React.FC<ItemProps> = ({
 
             if (dragIndex === hoverIndex) return;
 
-
             const hoveredRect = ref.current?.getBoundingClientRect();
             const hoverMiddleY = (hoveredRect.bottom - hoveredRect.top) / 2;
             const mousePosition = monitor.getClientOffset();
             const hoverClientY = mousePosition!.y - hoveredRect.top;
 
             if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) return;
-            if (dragIndex > hoverIndex && hoverClientY < hoverMiddleY) return;
+            if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) return;
 
-            moveIt(dragIndex, hoverIndex);
+            moveIt(dragIndex, hoverIndex, item);
             item.index = hoverIndex;
         },
     });

@@ -9,6 +9,7 @@ const Footer: React.FC = () => {
                     href="https://www.flaticon.com/authors/freepik"
                     title="Freepik"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Freepik
                 </a>
@@ -17,6 +18,7 @@ const Footer: React.FC = () => {
                     href="https://www.flaticon.com/"
                     title="Flaticon"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     www.flaticon.com
                 </a>
@@ -30,6 +32,7 @@ const Footer: React.FC = () => {
                     <a
                         href="https://github.com/suzynakayama"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="footer__dev-link"
                     >
                         Suzy Nakayama
@@ -42,6 +45,7 @@ const Footer: React.FC = () => {
                     <a
                         href="https://github.com/Roger-Takeshita"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="footer__dev-link"
                     >
                         Roger Takeshita

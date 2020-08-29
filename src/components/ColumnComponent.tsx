@@ -59,11 +59,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
         monitor: DropTargetMonitor,
         newColumnId: number
     ) => {
-        console.log('item', item);
-        console.log('id', item.columnId);
-        console.log('new', newColumnId);
         if (item.columnId !== newColumnId) {
-            console.log('aki');
             updateItemColumn({ item, newColumnId });
         }
     };
