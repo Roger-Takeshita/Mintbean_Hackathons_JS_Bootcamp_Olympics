@@ -14,9 +14,9 @@ const App: React.FC<any> = ({ columns, items }) => {
     useEffect(() => {
         setBoardColumns(columns);
         setBoardItems(items);
-        console.log(boardColumns);
-        console.log(boardItems);
-    }, [boardColumns, boardItems, columns, items]);
+        // console.log(boardColumns);
+        // console.log(boardItems);
+    }, [columns, items]);
 
     // const onDropColumn = (column: Item, monitor: DropTargetMonitor, newColumnId: number) => {
     //     setBoardColumns(prevState => {
@@ -62,12 +62,12 @@ const App: React.FC<any> = ({ columns, items }) => {
                     {board.board.map()}
                 </ColumnWrapper> */}
                 <div>
-                    <ItemsWrapper columnId={0} onDropItem={onDropItem}>
-                        {boardItems
+                    <ItemsWrapper columnId={0} onDropItem={onDropItem} boardItems={boardItems} moveItem={moveItem}>
+                        {/* {boardItems
                             // .filter(item => item.columnId === )
                             .map((item, idx) => 
                         <ItemComponent key={idx} item={item} index={idx} moveIt={moveItem} columnId={0} />
-                    )}
+                    )} */}
                         </ItemsWrapper>
                 </div>
             </main>

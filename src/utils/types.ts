@@ -21,6 +21,8 @@ export interface ColumnWrapperProps extends React.Component {
 export interface ItemsWrapperProps {
     onDropItem: (item: any, monitor: DropTargetMonitor, columnId: number) => void;
     columnId: number;
+    moveItem: (dragIndex: number, hoverIndex: number) => void;
+    boardItems: Item[]
 };
 
 export interface BaseColumnItemProps {
