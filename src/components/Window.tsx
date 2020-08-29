@@ -1,9 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { WindowProps } from '../utils/types';
 
-Modal.setAppElement('#App');
+Modal.setAppElement('#root');
 
-const Window: React.FC = ({ show, onClose, item }) => {
+const Window: React.FC<WindowProps> = ({ show, onClose, item }) => {
     return (
         <Modal
             isOpen={show}
@@ -12,21 +13,14 @@ const Window: React.FC = ({ show, onClose, item }) => {
             overlayClassName="overlay"
         >
             <div className="close__btn-ctn">
-                <h1 style={{ flex: '1 90%' }}>{item.title}</h1>
+                <h1 style={{ flex: '1 90%' }}>{item.itemTitle}</h1>
                 <button className="btn__close" onClick={onClose}>
                     X
                 </button>
             </div>
             <div className="">
                 <h2>Description</h2>
-                <p>{item.content}</p>
-                <h2>Status</h2>
-                <p>
-                    {item.icon}
-                    {`${item.status
-                        .chartAt(0)
-                        .toUpperCase()}${item.status.slice(1)}`}
-                </p>
+                <p>{item.itemDescription}</p>
             </div>
         </Modal>
     );
