@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'DancingScript-Bold';
+  font-weight: 700;
+  src: local("DancingScript"), url("../assets/fonts/DancingScript.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Shojumaru';
+  font-weight: 400;
+  src: local("Shojumaru-6ZlM"), url("../assets/fonts/Shojumaru-6ZlM.ttf") format("opentype");
+}
+
 *,
 *::before,
 *::after {
@@ -14,4 +26,76 @@ html {
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30rem;
+}
+
+.item__item-box {
+  background-color: lightgray;
+  margin: 1rem;
+  padding: 2rem;
+  border: 1px solid #000;
+  border-style: dotted;
+}
+
+.item__paragraph--title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #000;
+}
+
+.item__paragraph--status {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #252525;
+  height: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  padding: 0 5rem;
+}
+
+.footer__attribution-box {
+  color: #6e6e6e;
+}
+
+.footer__attribution-box a {
+  font-size: 0.5rem;
+  text-decoration: none;
+  color: #6e6e6e;
+}
+
+.footer__dev--developed {
+  font-family: DancingScript-Bold, sans-serif;
+  font-size: 1.5rem;
+}
+
+.footer__dev-link {
+  font-family: Shojumaru, sans-serif;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.footer__dev-link:hover {
+  color: #0084ff;
 }

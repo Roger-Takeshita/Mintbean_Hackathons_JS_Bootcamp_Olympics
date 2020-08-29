@@ -6,6 +6,7 @@ import { Item, Column } from './utils/types';
 import { DropTargetMonitor } from 'react-dnd';
 import ItemsWrapper from './components/ItemsWrapper';
 import ItemComponent from './components/ItemComponent';
+import Footer from './components/Footer';
 
 const App: React.FC<any> = ({ columns, items }) => {
     const [boardColumns, setBoardColumns] = useState<Column[]>([]);
@@ -27,10 +28,14 @@ const App: React.FC<any> = ({ columns, items }) => {
     //     });
     // };
 
-    const onDropItem = (item: Item, monitor: DropTargetMonitor, newColumnId: number) => {
-        setBoardItems(prevState => {
+    const onDropItem = (
+        item: Item,
+        monitor: DropTargetMonitor,
+        newColumnId: number
+    ) => {
+        setBoardItems((prevState) => {
             const newItems = prevState
-                .filter(each => each.itemTitle !== item.itemTitle)
+                .filter((each) => each.itemTitle !== item.itemTitle)
                 .concat({ ...item, columnId: newColumnId });
             return [...newItems];
         });
@@ -39,7 +44,9 @@ const App: React.FC<any> = ({ columns, items }) => {
     const moveCol = (dragIndex: number, hoverIndex: number) => {
         const col = boardColumns![dragIndex];
         setBoardColumns((prevState) => {
-            const newColumns = prevState.filter((item, idx) => idx !== dragIndex);
+            const newColumns = prevState.filter(
+                (item, idx) => idx !== dragIndex
+            );
             newColumns.splice(hoverIndex, 0, col);
             return [...newColumns];
         });
@@ -47,7 +54,9 @@ const App: React.FC<any> = ({ columns, items }) => {
 
     return (
         <div className="App">
-            <Header />
+            <header>
+                <Header />
+            </header>
             <main>
                 {/* <ColumnWrapper onDrop={onDrop}>
                     {board.board.map()}
@@ -57,7 +66,7 @@ const App: React.FC<any> = ({ columns, items }) => {
                 </div>
             </main>
             <footer>
-                Pezinho
+                <Footer />
             </footer>
         </div>
     );
@@ -65,7 +74,7 @@ const App: React.FC<any> = ({ columns, items }) => {
 
 const mapStateToProps = (state: any) => ({
     items: state.items,
-    columns: state.columns
+    columns: state.columns,
 });
 
 export default connect(mapStateToProps)(App);

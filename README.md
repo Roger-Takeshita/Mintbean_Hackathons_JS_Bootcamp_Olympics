@@ -1,1 +1,1 @@
-# Mintbean Hackathon JS
+# The Ninja Board

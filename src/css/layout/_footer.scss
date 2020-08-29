@@ -1,0 +1,38 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(37, 37, 37);
+    height: 5rem;
+    align-items: center;
+    color: $color-white;
+    padding: 0 5rem;
+
+    &__attribution-box {
+        color: $color-grey-3;
+        a {
+            font-size: 0.5rem;
+            text-decoration: none;
+            color: $color-grey-3;
+        }
+    }
+    &__developer-box {
+    }
+    &__dev {
+        &--developed {
+            font-family: DancingScript-Bold, sans-serif;
+            font-size: 1.5rem;
+        }
+        &--name {
+        }
+    }
+    &__dev-link {
+        font-family: Shojumaru, sans-serif;
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: $color-white;
+
+        &:hover {
+            color: $color-blue;
+        }
+    }
+}

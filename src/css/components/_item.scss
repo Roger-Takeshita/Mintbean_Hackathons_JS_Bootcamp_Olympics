@@ -1,0 +1,24 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+
+    &__item-box {
+        background-color: lightgray;
+        margin: $margin-xsmall;
+        padding: $padding-small;
+        border: 1px solid $color-black;
+        border-style: dotted;
+    }
+    &__paragraph {
+        &--title {
+            font-size: $default-font-size * 1rem;
+            margin-bottom: $margin-xsmall;
+            border-bottom: 1px solid $color-black;
+        }
+        &--status {
+            font-size: resize($default-font-size, 0.75);
+            text-align: center;
+        }
+    }
+}

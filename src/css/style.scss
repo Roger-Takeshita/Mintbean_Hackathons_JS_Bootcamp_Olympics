@@ -1,1 +1,9 @@
+@import './base/variables';
+@import './base/functions';
+@import './base/typography';
 @import './base/base';
+
+@import './components/item';
+
+@import './layout/header';
+@import './layout/footer';

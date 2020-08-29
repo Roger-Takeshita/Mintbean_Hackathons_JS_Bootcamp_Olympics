@@ -3,7 +3,12 @@ import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import { ITEM_TYPE, ItemProps, DragItem } from '../utils/types';
 import Window from './Window';
 
-const ItemComponent: React.FC<ItemProps> = ({ item, index, moveIt, columnId }) => {
+const ItemComponent: React.FC<ItemProps> = ({
+    item,
+    index,
+    moveIt,
+    columnId,
+}) => {
     const ref = useRef<HTMLDivElement>(null);
 
     const [, drop] = useDrop({
@@ -35,8 +40,8 @@ const ItemComponent: React.FC<ItemProps> = ({ item, index, moveIt, columnId }) =
 
     const [{ opacity }, drag] = useDrag({
         item: { type: ITEM_TYPE, ...item, index },
-        collect: monitor => ({
-            opacity: monitor.isDragging() ? 0 : 1
+        collect: (monitor) => ({
+            opacity: monitor.isDragging() ? 0 : 1,
         }),
     });
 
@@ -52,13 +57,13 @@ const ItemComponent: React.FC<ItemProps> = ({ item, index, moveIt, columnId }) =
 
     return (
         <>
-            <div
-                ref={ref}
-                className={`item ${opacity}`}
-                onClick={onOpen}
-            >
-                <p className="item__title">{item.itemTitle}</p>
-                <p className="item__status">{item.itemDescription}</p>
+            <div ref={ref} className={`item ${opacity}`} onClick={onOpen}>
+                <div className="item__item-box">
+                    <p className="item__paragraph--title">{item.itemTitle}</p>
+                    <p className="item__paragraph--status">
+                        {item.itemDescription}
+                    </p>
+                </div>
             </div>
             <Window item={item} onClose={onClose} show={show} />
         </>
