@@ -77,3 +77,14 @@ export interface ItemReducer {
     dragIndex?: number;
     hoverIndex?: number;
 }
+
+export interface ModalProps {
+    modal: {
+        itemTitle: string;
+        itemDescription: string;
+        columnId: number;
+        index: number;
+    };
+    modalClose: () => void;
+    updateIme: (data: ItemReducer) => void;
+}
