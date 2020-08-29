@@ -58,6 +58,18 @@ body {
   text-align: center;
 }
 
+.col-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,3 +111,4 @@ body {
 .footer__dev-link:hover {
   color: #0084ff;
 }
+/*# sourceMappingURL=style.css.map */

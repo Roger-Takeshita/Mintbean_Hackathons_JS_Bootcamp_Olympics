@@ -14,8 +14,10 @@ export interface Column {
     columnTitle: string;
 };
 
-export interface ColumnWrapperProps extends React.Component {
-    onDropColumn: (item: any, monitor: DropTargetMonitor, columnId: number) => void;
+export interface ColumnWrapperProps {
+    // onDropColumn: (item: any, monitor: DropTargetMonitor, columnId: number) => void;
+    columns: Column[];
+    updateColumn: (data: MoveItProps) => void;
 };
 
 export interface ItemsWrapperProps {
@@ -30,8 +32,8 @@ export interface ItemsWrapperProps {
 };
 
 export interface MoveItProps {
-    dragIndex: number;
-    hoverIndex: number;
+    dragIndex?: number;
+    hoverIndex?: number;
 }
 
 export interface BaseColumnItemProps {
@@ -42,6 +44,8 @@ export interface BaseColumnItemProps {
 export interface ColumnProps extends BaseColumnItemProps {
     isOver: boolean;
     column: Column;
+    columns: Column[];
+    updateItemColumn: (item: any, columnId: number) => void;
 };
 
 export interface ItemProps extends BaseColumnItemProps {
@@ -60,4 +64,8 @@ export interface WindowProps {
     show: boolean;
     onClose: () => void;
     item: Item;
+}
+
+export interface ItemReducer extends MoveItProps, Item {
+    idx?: number;
 }
