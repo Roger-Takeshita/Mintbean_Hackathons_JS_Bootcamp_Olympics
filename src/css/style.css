@@ -439,6 +439,58 @@ main {
           box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
+.window-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 6rem;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.window-modal__section {
+  background: #cccccc;
+  width: 35%;
+  height: 50%;
+  border-radius: 0.5rem;
+  padding: 4rem;
+  position: relative;
+}
+
+.window-modal__title-section {
+  padding: 2rem 0;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+.window-modal__btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 3rem;
+  background: #000;
+}
+
+.window-modal__description-section {
+  margin-top: 4rem;
+}
+
+.window-modal__description-text {
+  font-size: 1.6rem;
+}
+
 .header {
   height: 3rem;
   background-color: rgba(74, 84, 77, 0.8);
@@ -497,3 +549,4 @@ main {
 .footer__dev-link:hover {
   color: #3e752d;
 }
+/*# sourceMappingURL=style.css.map */

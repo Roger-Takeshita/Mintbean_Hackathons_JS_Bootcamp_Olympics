@@ -1,7 +1,8 @@
-import { MoveItProps, Item, ItemReducer, ColumnProps } from '../utils/types';
+import { Item, ItemReducer } from '../utils/types';
 import { v4 as uuidv4 } from 'uuid';
 const ADD_ITEM = 'ADD_ITEM';
 const DELETE_ITEM = 'DELETE_ITEM';
+const DELETE_ITEMS = 'DELETE_ITEMS';
 const UPDATE_ITEM = 'UPDATE_ITEM';
 const UPDATE_ITEM_INFO = 'UPDATE_ITEM_INFO';
 const UPDATE_ITEM_COLUMN = 'UPDATE_ITEM_COLUMN';
@@ -28,6 +29,11 @@ export const updateItemColumn = (data: ItemReducer) => ({
 
 export const deleteItem = (data: ItemReducer) => ({
     type: DELETE_ITEM,
+    payload: data,
+});
+
+export const deleteItems = (data: ItemReducer) => ({
+    type: DELETE_ITEMS,
     payload: data,
 });
 
@@ -141,6 +147,10 @@ function itemsReducer(
         case DELETE_ITEM:
             return state.filter((each) => {
                 return each.itemId !== action.payload.itemId;
+            });
+        case DELETE_ITEMS:
+            return state.filter((each) => {
+                return each.columnId !== action.payload.columnId;
             });
         default:
             return state;

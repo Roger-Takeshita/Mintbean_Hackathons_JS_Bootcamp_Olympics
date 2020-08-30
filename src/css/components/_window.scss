@@ -1,0 +1,55 @@
+// .ReactModalPortal {
+//     position: absolute;
+//     width: 100vw;
+//     height: 100vh;
+//     top: 0;
+    // left: 0;
+    // bottom: 0; 
+    // right: 0;
+// }
+
+// .ReactModal_Overlay {
+//     width: 100%;
+//     height: 100%;
+// }
+
+.window-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0; 
+    right: 0;
+    padding: $padding-large;
+    background: rgba(0,0,0,0.6);
+    &__section {
+        background: $color-grey-1;
+        width: 35%;
+        height: 50%;
+        border-radius: $border-radius;
+        padding: $padding-medium;
+        position: relative;
+    }
+    &__title-section {
+        padding: $padding-small 0;
+        border-bottom: 1px solid $color-black;
+        text-align: center;
+    }
+    &__btn {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 3rem;
+        background: $color-black;
+    }
+    &__description-section {
+        margin-top: $margin-medium;
+    }
+    &__description-text {
+        font-size: resize($default-font-size, 1);
+    }
+}

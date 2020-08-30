@@ -132,6 +132,8 @@ export interface DeleteModalProps {
     type: string;
     item?: Item;
     column?: Column;
+    columnId?: string;
     deleteItem?: (data: ItemReducer) => void;
+    deleteItems?: (data: ItemReducer) => void;
     deleteColumn?: (data: ItemReducer) => void;
 }

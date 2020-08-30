@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
 import { DeleteModalProps, ItemReducer } from '../utils/types';
 import { deleteColumn } from '../redux/columns';
-import { deleteItem } from '../redux/items';
+import { deleteItem, deleteItems } from '../redux/items';
 
 ReactModal.setAppElement('#root');
 
@@ -14,11 +14,16 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
     item,
     column,
     deleteItem,
+    deleteItems,
     deleteColumn,
 }) => {
     const handleDelete = (evt: MouseEvent) => {
-        if (type === 'item') deleteItem!({ itemId: item!.itemId });
-        else deleteColumn!({ columnId: column!.columnId });
+        if (type === 'item') {
+            deleteItem!({ itemId: item!.itemId });
+        } else {
+            deleteColumn!({ columnId: column!.columnId });
+            deleteItems!({ columnId: column!.columnId });
+        }
         setShowDeleteModal(false);
     };
 
@@ -51,6 +56,7 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
 
 const mapDispatchToProps = (dispatch: any) => ({
     deleteItem: (itemId: ItemReducer) => dispatch(deleteItem(itemId)),
+    deleteItems: (columnId: ItemReducer) => dispatch(deleteItems(columnId)),
     deleteColumn: (columnId: ItemReducer) => dispatch(deleteColumn(columnId)),
 });
 
