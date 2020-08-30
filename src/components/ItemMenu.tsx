@@ -1,15 +1,16 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, useEffect } from "react";
 import MoveItem from './MoveItem';
 import { ItemMenuProps, ItemReducer } from "../utils/types";
 import { deleteItem } from '../redux/items';
 import { connect } from "react-redux";
+import { modalOpen } from "../redux/modal";
 
-const ItemMenu: React.FC<ItemMenuProps> = ({item, items, setShowMenu, deleteItem}) => {
+const ItemMenu: React.FC<ItemMenuProps> = ({item, items, setShowMenu, deleteItem, modalOpen}) => {
     const [showMoveItem, setShowMoveItem] = useState(false);
 
     const handleEdit = (evt: MouseEvent) => {
         evt.stopPropagation();
-        console.log("edit");
+        modalOpen({ ...item, mode: "update-item" });
     };
     
     const handleMove = (evt: MouseEvent) => {
@@ -24,7 +25,7 @@ const ItemMenu: React.FC<ItemMenuProps> = ({item, items, setShowMenu, deleteItem
         deleteItem({ idx });
         setShowMenu(false);
     };
-    
+
     return (
         <div onClick={() => setShowMenu(false)} className='item-menu'>
             <ul className='item-menu__ul' >
@@ -39,11 +40,13 @@ const ItemMenu: React.FC<ItemMenuProps> = ({item, items, setShowMenu, deleteItem
 }
 
 const mapStateToProps = (state: any) => ({
-    items: state.items
+    items: state.items,
+    modal: state.modal
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-    deleteItem: (idx: ItemReducer) => dispatch(deleteItem(idx))
+    deleteItem: (idx: ItemReducer) => dispatch(deleteItem(idx)),
+    modalOpen: (data: ItemReducer) => dispatch(modalOpen(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemMenu);

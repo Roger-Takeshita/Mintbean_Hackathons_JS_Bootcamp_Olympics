@@ -12,7 +12,6 @@ const Modal: React.FC<ModalProps> = ({
     updateItemInfo,
     addColumn,
     updateColumnInfo,
-    mode,
 }) => {
     const initialState = {
         itemTitle: '',
@@ -20,26 +19,22 @@ const Modal: React.FC<ModalProps> = ({
         columnId: -1,
         index: -1,
     };
-    const [open, setOpen] = useState(true);
     const [form, setForm] = useState(initialState);
     const [modeNow, setModeNow] = useState('');
 
     useEffect(() => {
         setForm(modal);
-        setOpen(true);
-
-        if (mode === 'add-column') {
+        console.log(modal);
+        if (modal.mode === 'add-column') {
             setModeNow('add-column');
-        } else if (mode === 'add-item') {
+        } else if (modal.mode === 'add-item') {
             setModeNow('add-item');
-            // TODO Change the column ID later
-            setForm({ ...form, columnId: 0 });
-        } else if (mode === 'update-item') {
+        } else if (modal.mode === 'update-item') {
             setModeNow('update-item');
         } else {
             setModeNow('update-column');
         }
-    }, [modal, mode]);
+    }, [modal]);
 
     const handleChange = ({
         target: { name, value },
@@ -51,29 +46,27 @@ const Modal: React.FC<ModalProps> = ({
     };
 
     const handleClose = () => {
-        setOpen(false);
         setForm(initialState);
         modalClose();
     };
 
     const handleUpdated = () => {
-        // TODO Add new item to items redux
-        if (mode === 'add-column') {
+        setForm({ ...form, columnId: modal.columnId });
+        if (modal.mode === 'add-column') {
             addColumn!(form.itemTitle);
-        } else if (mode === 'add-item') {
+        } else if (modal.mode === 'add-item') {
             addItem!(form);
-        } else if (mode === 'update-item') {
+        } else if (modal.mode === 'update-item') {
             updateItemInfo!(form);
         } else {
             // updateColumnInfo!();
         }
 
-        //+ Then we clean the modal
         handleClose();
     };
 
     return (
-        <div className={open ? 'modal modal--visible' : 'modal modal--hide'}>
+        <div className={modal.mode !== '' ? 'modal modal--visible' : 'modal modal--hide'}>
             <div className="modal__modal-box">
                 <div className="modal__header">
                     <input
@@ -90,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({
                         Title
                     </label>
                 </div>
-                {modeNow === 'add-item' ? (
+                {modeNow === 'add-item' || 'update-item' ? (
                     <div className="modal__body">
                         <textarea
                             className="modal__input modal__input--description"

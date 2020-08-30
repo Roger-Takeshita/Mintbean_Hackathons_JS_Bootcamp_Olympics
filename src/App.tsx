@@ -16,7 +16,7 @@ const App: React.FC = () => {
             <footer>
                 <Footer />
             </footer>
-            <Modal mode="add-item" />
+            <Modal />
         </div>
     );
 };
