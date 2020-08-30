@@ -85,6 +85,10 @@ export interface ModalProps {
         columnId: number;
         index: number;
     };
+    mode?: string;
     modalClose: () => void;
-    updateIme: (data: ItemReducer) => void;
+    addItem?: (data: ItemReducer) => void;
+    updateItemInfo?: (data: ItemReducer) => void;
+    addColumn?: (data: string) => void;
+    updateColumnInfo?: (data: string) => void;
 }

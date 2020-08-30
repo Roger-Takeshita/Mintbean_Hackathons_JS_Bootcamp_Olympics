@@ -22,6 +22,8 @@ function modalReducer(
 ) {
     switch (action.type) {
         case MODAL_OPEN:
+            //TODO create add new information to modal
+
             break;
         case MODAL_CLOSE:
             return initialState;

@@ -2,9 +2,18 @@ import React, { useState, ChangeEvent, useEffect } from 'react';
 import { ItemReducer, ModalProps } from '../utils/types';
 import { connect } from 'react-redux';
 import { modalClose } from '../redux/modal';
-import { updateItem } from '../redux/items';
+import { addItem, updateItemInfo } from '../redux/items';
+import { addColumn, updateColumnInfo } from '../redux/columns';
 
-const Modal: React.FC<ModalProps> = ({ modal, modalClose, updateIme }) => {
+const Modal: React.FC<ModalProps> = ({
+    modal,
+    modalClose,
+    addItem,
+    updateItemInfo,
+    addColumn,
+    updateColumnInfo,
+    mode,
+}) => {
     const initialState = {
         itemTitle: '',
         itemDescription: '',
@@ -13,10 +22,24 @@ const Modal: React.FC<ModalProps> = ({ modal, modalClose, updateIme }) => {
     };
     const [open, setOpen] = useState(true);
     const [form, setForm] = useState(initialState);
+    const [modeNow, setModeNow] = useState('');
 
     useEffect(() => {
         setForm(modal);
-    }, [modal]);
+        setOpen(true);
+
+        if (mode === 'add-column') {
+            setModeNow('add-column');
+        } else if (mode === 'add-item') {
+            setModeNow('add-item');
+            // TODO Change the column ID later
+            setForm({ ...form, columnId: 0 });
+        } else if (mode === 'update-item') {
+            setModeNow('update-item');
+        } else {
+            setModeNow('update-column');
+        }
+    }, [modal, mode]);
 
     const handleChange = ({
         target: { name, value },
@@ -25,7 +48,6 @@ const Modal: React.FC<ModalProps> = ({ modal, modalClose, updateIme }) => {
             ...form,
             [name]: value,
         });
-        console.log(form);
     };
 
     const handleClose = () => {
@@ -36,7 +58,16 @@ const Modal: React.FC<ModalProps> = ({ modal, modalClose, updateIme }) => {
 
     const handleUpdated = () => {
         // TODO Add new item to items redux
-        updateIme(form);
+        if (mode === 'add-column') {
+            addColumn!(form.itemTitle);
+        } else if (mode === 'add-item') {
+            addItem!(form);
+        } else if (mode === 'update-item') {
+            updateItemInfo!(form);
+        } else {
+            // updateColumnInfo!();
+        }
+
         //+ Then we clean the modal
         handleClose();
     };
@@ -59,22 +90,26 @@ const Modal: React.FC<ModalProps> = ({ modal, modalClose, updateIme }) => {
                         Title
                     </label>
                 </div>
-                <div className="modal__body">
-                    <textarea
-                        className="modal__input modal__input--description"
-                        placeholder="Description"
-                        autoComplete="off"
-                        id="description"
-                        name="itemDescription"
-                        data-gramm="false"
-                        onChange={handleChange}
-                        spellCheck="false"
-                        value={form.itemDescription}
-                    />
-                    <label htmlFor="description" className="modal__label">
-                        Description
-                    </label>
-                </div>
+                {modeNow === 'add-item' ? (
+                    <div className="modal__body">
+                        <textarea
+                            className="modal__input modal__input--description"
+                            placeholder="Description"
+                            autoComplete="off"
+                            id="description"
+                            name="itemDescription"
+                            data-gramm="false"
+                            onChange={handleChange}
+                            spellCheck="false"
+                            value={form.itemDescription}
+                        />
+                        <label htmlFor="description" className="modal__label">
+                            Description
+                        </label>
+                    </div>
+                ) : (
+                    ''
+                )}
                 <div className="modal__ctrl">
                     <button className="btn btn--ok" onClick={handleUpdated}>
                         Update
@@ -93,9 +128,11 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    updateItem: (data: ItemReducer) => dispatch(updateItem(data)),
+    addItem: (data: ItemReducer) => dispatch(addItem(data)),
+    updateItemInfo: (data: ItemReducer) => dispatch(updateItemInfo(data)),
+    addColumn: (data: string) => dispatch(addColumn(data)),
+    updateColumnInfo: (data: string) => dispatch(updateColumnInfo(data)),
     modalClose: () => dispatch(modalClose()),
-    updateIme: (data: ItemReducer) => dispatch(updateItem(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
