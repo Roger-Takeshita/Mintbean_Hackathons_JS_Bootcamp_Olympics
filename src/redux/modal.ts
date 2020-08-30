@@ -4,7 +4,7 @@ const MODAL_CLOSE = 'MODAL_CLOSE';
 
 export const modalOpen = (data: {}) => ({
     type: MODAL_OPEN,
-    payload: data
+    payload: data,
 });
 
 export const modalClose = () => ({
@@ -15,15 +15,16 @@ const initialState = {
     itemTitle: '',
     itemDescription: '',
     columnId: -1,
-    mode: ''
+    columnTitle: '',
+    mode: '',
 };
 function modalReducer(
     state = initialState,
-    action: { type: string; payload: ItemReducer}
+    action: { type: string; payload: ItemReducer }
 ) {
     switch (action.type) {
         case MODAL_OPEN:
-            return {...action.payload};
+            return { ...state, ...action.payload };
         case MODAL_CLOSE:
             return initialState;
         default:

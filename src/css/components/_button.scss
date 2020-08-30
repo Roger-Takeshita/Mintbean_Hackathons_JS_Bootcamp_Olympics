@@ -18,6 +18,10 @@
         margin-left: $margin-xsmall;
         background-color: $color-red;
     }
+    &--add {
+        width: 50%;
+        background-color: $color-grey-3;
+    }
     &:hover {
         transform: translateY(-0.25rem);
         box-shadow: 0.6rem 0.6rem 1.2rem rgba($color-black, 0.7);

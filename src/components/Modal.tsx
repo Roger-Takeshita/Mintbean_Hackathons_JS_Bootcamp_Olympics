@@ -16,7 +16,8 @@ const Modal: React.FC<ModalProps> = ({
     const initialState = {
         itemTitle: '',
         itemDescription: '',
-        columnId: -1,
+        columnId: '',
+        columnTitle: '',
         index: -1,
     };
     const [form, setForm] = useState(initialState);
@@ -24,16 +25,7 @@ const Modal: React.FC<ModalProps> = ({
 
     useEffect(() => {
         setForm(modal);
-        console.log(modal);
-        if (modal.mode === 'add-column') {
-            setModeNow('add-column');
-        } else if (modal.mode === 'add-item') {
-            setModeNow('add-item');
-        } else if (modal.mode === 'update-item') {
-            setModeNow('update-item');
-        } else {
-            setModeNow('update-column');
-        }
+        setModeNow(modal.mode!);
     }, [modal]);
 
     const handleChange = ({
@@ -59,14 +51,18 @@ const Modal: React.FC<ModalProps> = ({
         } else if (modal.mode === 'update-item') {
             updateItemInfo!(form);
         } else {
-            // updateColumnInfo!();
+            updateColumnInfo!(form);
         }
 
         handleClose();
     };
 
     return (
-        <div className={modal.mode !== '' ? 'modal modal--visible' : 'modal modal--hide'}>
+        <div
+            className={
+                modal.mode !== '' ? 'modal modal--visible' : 'modal modal--hide'
+            }
+        >
             <div className="modal__modal-box">
                 <div className="modal__header">
                     <input
@@ -74,16 +70,16 @@ const Modal: React.FC<ModalProps> = ({
                         id="title"
                         className="modal__input"
                         placeholder="Title"
-                        value={form.itemTitle}
+                        value={form.itemTitle || form.columnTitle}
                         onChange={handleChange}
-                        name="itemTitle"
+                        name={form.itemTitle ? 'itemTitle' : 'columnTitle'}
                         required
                     />
                     <label htmlFor="title" className="modal__label">
                         Title
                     </label>
                 </div>
-                {modeNow === 'add-item' || 'update-item' ? (
+                {modeNow === 'add-item' || modeNow === 'update-item' ? (
                     <div className="modal__body">
                         <textarea
                             className="modal__input modal__input--description"
@@ -124,7 +120,7 @@ const mapDispatchToProps = (dispatch: any) => ({
     addItem: (data: ItemReducer) => dispatch(addItem(data)),
     updateItemInfo: (data: ItemReducer) => dispatch(updateItemInfo(data)),
     addColumn: (data: string) => dispatch(addColumn(data)),
-    updateColumnInfo: (data: string) => dispatch(updateColumnInfo(data)),
+    updateColumnInfo: (data: ItemReducer) => dispatch(updateColumnInfo(data)),
     modalClose: () => dispatch(modalClose()),
 });
 

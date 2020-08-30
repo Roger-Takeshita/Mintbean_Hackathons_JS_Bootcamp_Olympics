@@ -3,15 +3,19 @@ import { DropTargetMonitor } from 'react-dnd';
 export const ITEM_TYPE = 'ITEM';
 export const COLUMN_TYPE = 'COLUMN';
 
+export interface AppProps {
+    modalOpen: (data: ItemReducer) => void;
+}
+
 export interface Item {
     itemId: string;
     itemTitle: string;
     itemDescription: string;
-    columnId: number;
+    columnId: string;
 }
 
 export interface Column {
-    columnId: number;
+    columnId: string;
     columnTitle: string;
 }
 
@@ -21,13 +25,21 @@ export interface ColumnWrapperProps {
     updateColumn: (data: MoveItProps) => void;
 }
 
+export interface ColumnProps extends BaseColumnItemProps {
+    isOver: boolean;
+    column: Column;
+    columns: Column[];
+    updateItemColumn: (data: ItemReducer) => void;
+    modalOpen: (data: ItemReducer) => void;
+}
+
 export interface ItemsWrapperProps {
     onDropItem: (
         item: any,
         monitor: DropTargetMonitor,
-        columnId: number
+        columnId: string
     ) => void;
-    columnId: number;
+    columnId: string;
     items: Item[];
     updateItem: (data: MoveItProps) => void;
 }
@@ -43,17 +55,9 @@ export interface BaseColumnItemProps {
     moveIt: (dragIndex: number, hoverIndex: number, item?: any) => void;
 }
 
-export interface ColumnProps extends BaseColumnItemProps {
-    isOver: boolean;
-    column: Column;
-    columns: Column[];
-    updateItemColumn: (data: ItemReducer) => void;
-    modalOpen: (data: ItemReducer) => void;
-}
-
 export interface ItemProps extends BaseColumnItemProps {
     item: Item;
-    columnId: number;
+    columnId: string;
 }
 
 export interface DragItem extends Item {
@@ -71,15 +75,16 @@ export interface WindowProps {
 
 export interface ItemReducer {
     idx?: number;
-    newColumnId?: number;
+    newColumnId?: string;
     itemTitle?: string;
     itemDescription?: string;
-    columnId?: number;
+    columnId?: string;
     item?: Item;
     dragIndex?: number;
     hoverIndex?: number;
     mode?: string;
     itemId?: string;
+    columnTitle?: string;
 }
 
 export interface ItemMenuProps {
@@ -103,14 +108,14 @@ export interface ModalProps {
     modal: {
         itemTitle: string;
         itemDescription: string;
-        columnId: number;
+        columnId: string;
+        columnTitle: string;
         index: number;
         mode?: string;
     };
-    // mode?: string;
     modalClose: () => void;
     addItem?: (data: ItemReducer) => void;
     updateItemInfo?: (data: ItemReducer) => void;
     addColumn?: (data: string) => void;
-    updateColumnInfo?: (data: string) => void;
+    updateColumnInfo?: (data: ItemReducer) => void;
 }

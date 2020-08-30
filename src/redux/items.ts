@@ -34,55 +34,55 @@ export const deleteItem = (idx: ItemReducer) => ({
 const initialState: Item[] = [
     {
         itemId: uuidv4(),
-        columnId: 0,
+        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
         itemTitle: 'First Item of column 1x1',
         itemDescription: 'Description 1x1',
     },
     {
         itemId: uuidv4(),
-        columnId: 0,
+        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
         itemTitle: 'First Item of column 1x2',
         itemDescription: 'Description 1x2',
     },
     {
         itemId: uuidv4(),
-        columnId: 0,
+        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
         itemTitle: 'First Item of column 1x3',
         itemDescription: 'Description 1x3',
     },
     {
         itemId: uuidv4(),
-        columnId: 1,
+        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
         itemTitle: 'Second Item of column 2x1',
         itemDescription: 'Description 2x1',
     },
     {
         itemId: uuidv4(),
-        columnId: 1,
+        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
         itemTitle: 'Second Item of column 2x2',
         itemDescription: 'Description 2x2',
     },
     {
         itemId: uuidv4(),
-        columnId: 1,
+        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
         itemTitle: 'Second Item of column 2x3',
         itemDescription: 'Description 2x3',
     },
     {
         itemId: uuidv4(),
-        columnId: 2,
+        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
         itemTitle: 'Third Item of column 3x1',
         itemDescription: 'Description 3x1',
     },
     {
         itemId: uuidv4(),
-        columnId: 2,
+        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
         itemTitle: 'Third Item of column 3x2',
         itemDescription: 'Description 3x2',
     },
     {
         itemId: uuidv4(),
-        columnId: 2,
+        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
         itemTitle: 'Third Item of column 3x3',
         itemDescription: 'Description 3x3',
     },
@@ -115,22 +115,17 @@ function itemsReducer(
             );
             return [...nextItem];
         case UPDATE_ITEM_INFO:
-            console.log(action.payload);
-            const itemIndex = state.findIndex(each => each.itemId === action.payload.itemId)
-            const nextUpdate = state
-                .filter((each) => {
-                    return each.itemId !== action.payload.itemId;
-                });
-            // console.log(nextUpdate)
-            const updatedItem = state[itemIndex]
+            const itemIndex = state.findIndex(
+                (each) => each.itemId === action.payload.itemId
+            );
+            const nextUpdate = state.filter((each) => {
+                return each.itemId !== action.payload.itemId;
+            });
+            const updatedItem = state[itemIndex];
             updatedItem!.columnId = action.payload.columnId!;
             updatedItem!.itemTitle = action.payload.itemTitle!;
             updatedItem!.itemDescription = action.payload.itemDescription!;
-            nextUpdate.splice(
-                itemIndex,
-                1,
-                updatedItem
-            )
+            nextUpdate.splice(itemIndex, 1, updatedItem);
             return [...state, nextUpdate];
         case UPDATE_ITEM_COLUMN:
             const nextItemColumn = state
@@ -143,8 +138,8 @@ function itemsReducer(
                 });
             return [...nextItemColumn];
         case DELETE_ITEM:
-            const nextDeleteItem = state
-            nextDeleteItem.splice(action.payload.idx!, 1)
+            const nextDeleteItem = state;
+            nextDeleteItem.splice(action.payload.idx!, 1);
             return [...nextDeleteItem];
         default:
             return state;

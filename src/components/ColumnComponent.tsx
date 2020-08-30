@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { updateItemColumn } from '../redux/items';
 import ItemsWrapper from './ItemsWrapper';
-import { modalOpen } from "../redux/modal";
+import { modalOpen } from '../redux/modal';
 
 const ColumnComponent: React.FC<ColumnProps> = ({
     isOver,
@@ -21,7 +21,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     moveIt,
     columns,
     updateItemColumn,
-    modalOpen
+    modalOpen,
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const hovering = isOver ? 'is-over' : '';
@@ -59,7 +59,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     const onDropItem = (
         item: any,
         monitor: DropTargetMonitor,
-        newColumnId: number
+        newColumnId: string
     ) => {
         if (item.columnId !== newColumnId) {
             updateItemColumn({ item, newColumnId });
@@ -69,18 +69,31 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     drag(drop(ref));
 
     const handleButtonAddItem = () => {
-        modalOpen({mode: 'add-item', columnId: column.columnId});
-    }
+        modalOpen({ mode: 'add-item', columnId: column.columnId });
+    };
+
+    const handleButtonEditColumn = () => {
+        modalOpen({
+            mode: 'update-column',
+            columnTitle: column.columnTitle,
+            columnId: column.columnId,
+        });
+    };
 
     return (
         <div ref={ref} className={`col ${opacity} ${hovering}`}>
             <div className="col__col-individual">
-                <button onClick={handleButtonAddItem}>+</button>
-                <div className="col__title">{column.columnTitle}</div>
+                <section>
+                    <div className="col__title">{column.columnTitle}</div>
+                    <button onClick={handleButtonEditColumn}>Edit</button>
+                </section>
                 <ItemsWrapper
                     columnId={column.columnId}
                     onDropItem={onDropItem}
                 />
+                <button className="btn btn--add" onClick={handleButtonAddItem}>
+                    +
+                </button>
             </div>
         </div>
     );
@@ -92,7 +105,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
     updateItemColumn: (data: ItemReducer) => dispatch(updateItemColumn(data)),
-    modalOpen: (data: ItemReducer) => dispatch(modalOpen(data))
+    modalOpen: (data: ItemReducer) => dispatch(modalOpen(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColumnComponent);
