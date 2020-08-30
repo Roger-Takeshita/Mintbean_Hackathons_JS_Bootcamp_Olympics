@@ -20,9 +20,9 @@ export const updateColumnInfo = (data: ItemReducer) => ({
     payload: data,
 });
 
-export const deleteColumn = (data: {}) => ({
+export const deleteColumn = (id: ItemReducer) => ({
     type: DELETE_COLUMN,
-    payload: data,
+    payload: id,
 });
 
 const initialState = [
@@ -46,20 +46,20 @@ function columnsReducer(
 ) {
     switch (action.type) {
         case ADD_COLUMN:
-            return [
-                ...state,
-                { columnId: Math.random() * 16, columnTitle: action.payload },
-            ];
+            const newItem = { columnId: uuidv4(), columnTitle: action.payload };
+
+            return [...state, newItem];
         case UPDATE_COLUMN:
-            const nextColumn = state.filter(
+            const nextState = state.filter(
                 (column, idx) => idx !== action.payload.dragIndex
             );
-            nextColumn.splice(
+            nextState.splice(
                 action.payload.hoverIndex!,
                 0,
                 state[action.payload.dragIndex!]
             );
-            return [...nextColumn];
+
+            return [...nextState];
         case UPDATE_COLUMN_INFO:
             const columnIndex = state.findIndex(
                 (each) => each.columnId === action.payload.columnId
@@ -73,7 +73,9 @@ function columnsReducer(
 
             return [...nextUpdate];
         case DELETE_COLUMN:
-            return state;
+            return state.filter((each) => {
+                return each.columnId !== action.payload.columnId;
+            });
         default:
             return state;
     }

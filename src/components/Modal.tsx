@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import React, { useState, ChangeEvent, useEffect, MouseEvent } from 'react';
 import { ItemReducer, ModalProps } from '../utils/types';
 import { connect } from 'react-redux';
 import { modalClose } from '../redux/modal';
@@ -28,12 +28,13 @@ const Modal: React.FC<ModalProps> = ({
         setModeNow(modal.mode!);
     }, [modal]);
 
-    const handleChange = ({
-        target: { name, value },
-    }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (
+        evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        evt.stopPropagation();
         setForm({
             ...form,
-            [name]: value,
+            [evt.target.name]: evt.target.value,
         });
     };
 
@@ -42,10 +43,10 @@ const Modal: React.FC<ModalProps> = ({
         modalClose();
     };
 
-    const handleUpdated = () => {
+    const handleUpdated = (evt: MouseEvent) => {
         setForm({ ...form, columnId: modal.columnId });
         if (modal.mode === 'add-column') {
-            addColumn!(form.itemTitle);
+            addColumn!(form.columnTitle);
         } else if (modal.mode === 'add-item') {
             addItem!(form);
         } else if (modal.mode === 'update-item') {
@@ -62,8 +63,12 @@ const Modal: React.FC<ModalProps> = ({
             className={
                 modal.mode !== '' ? 'modal modal--visible' : 'modal modal--hide'
             }
+            onClick={handleClose}
         >
-            <div className="modal__modal-box">
+            <div
+                className="modal__modal-box"
+                onClick={(evt) => evt.stopPropagation()}
+            >
                 <div className="modal__header">
                     <input
                         type="text"
@@ -72,7 +77,11 @@ const Modal: React.FC<ModalProps> = ({
                         placeholder="Title"
                         value={form.itemTitle || form.columnTitle}
                         onChange={handleChange}
-                        name={form.itemTitle ? 'itemTitle' : 'columnTitle'}
+                        name={
+                            modeNow === 'add-item' || modeNow === 'update-item'
+                                ? 'itemTitle'
+                                : 'columnTitle'
+                        }
                         required
                     />
                     <label htmlFor="title" className="modal__label">

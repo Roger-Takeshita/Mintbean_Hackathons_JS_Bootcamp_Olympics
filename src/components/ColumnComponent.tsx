@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import {
     COLUMN_TYPE,
@@ -12,6 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { updateItemColumn } from '../redux/items';
 import ItemsWrapper from './ItemsWrapper';
+import ColumnEditMenu from './ColumnEditMenu';
 import { modalOpen } from '../redux/modal';
 
 const ColumnComponent: React.FC<ColumnProps> = ({
@@ -25,6 +26,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const hovering = isOver ? 'is-over' : '';
+    const [showEditMenu, setShowEditMenu] = useState(false);
 
     const [, drop] = useDrop({
         accept: COLUMN_TYPE,
@@ -73,17 +75,13 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     };
 
     const handleButtonEditColumn = () => {
-        modalOpen({
-            mode: 'update-column',
-            columnTitle: column.columnTitle,
-            columnId: column.columnId,
-        });
+        setShowEditMenu(!showEditMenu);
     };
 
     return (
         <div ref={ref} className={`col ${opacity} ${hovering}`}>
             <div className="col__col-individual">
-                <div className="col__header">
+                <div className="col__header-box">
                     <div className="col__title">{column.columnTitle}</div>
                     <button
                         className="col__column-btn"
@@ -91,14 +89,25 @@ const ColumnComponent: React.FC<ColumnProps> = ({
                     >
                         Edit
                     </button>
+                    {showEditMenu && (
+                        <ColumnEditMenu
+                            column={column}
+                            setShowEditMenu={setShowEditMenu}
+                        />
+                    )}
                 </div>
                 <ItemsWrapper
                     columnId={column.columnId}
                     onDropItem={onDropItem}
                 />
-                <button className="btn btn--add" onClick={handleButtonAddItem}>
-                    +
-                </button>
+                <div className="col__ctrl-box">
+                    <button
+                        className="btn btn--add"
+                        onClick={handleButtonAddItem}
+                    >
+                        +
+                    </button>
+                </div>
             </div>
         </div>
     );

@@ -26,9 +26,9 @@ export const updateItemColumn = (data: ItemReducer) => ({
     payload: data,
 });
 
-export const deleteItem = (idx: ItemReducer) => ({
+export const deleteItem = (data: ItemReducer) => ({
     type: DELETE_ITEM,
-    payload: idx,
+    payload: data,
 });
 
 const initialState: Item[] = [
@@ -94,26 +94,25 @@ function itemsReducer(
 ) {
     switch (action.type) {
         case ADD_ITEM:
-            const newItem = action.payload;
-            return [
-                ...state,
-                {
-                    itemTitle: newItem.itemTitle,
-                    itemDescription: newItem.itemDescription,
-                    columnId: newItem.columnId,
-                },
-            ];
+            const newItem = {
+                itemTitle: action.payload.itemTitle,
+                itemDescription: action.payload.itemDescription,
+                columnId: action.payload.columnId,
+            };
+
+            return [...state, newItem];
         case UPDATE_ITEM:
-            const nextItem = state.filter(
+            const nextState = state.filter(
                 (item, idx) => idx !== action.payload.dragIndex
             );
 
-            nextItem.splice(
+            nextState.splice(
                 action.payload.hoverIndex!,
                 0,
                 state[action.payload.dragIndex!]
             );
-            return [...nextItem];
+
+            return [...nextState];
         case UPDATE_ITEM_INFO:
             const itemIndex = state.findIndex(
                 (each) => each.itemId === action.payload.itemId
@@ -126,6 +125,7 @@ function itemsReducer(
             updatedItem!.itemTitle = action.payload.itemTitle!;
             updatedItem!.itemDescription = action.payload.itemDescription!;
             nextUpdate.splice(itemIndex, 1, updatedItem);
+
             return [...state, nextUpdate];
         case UPDATE_ITEM_COLUMN:
             const nextItemColumn = state
@@ -136,11 +136,12 @@ function itemsReducer(
                     ...action.payload.item!,
                     columnId: action.payload.newColumnId!,
                 });
+
             return [...nextItemColumn];
         case DELETE_ITEM:
-            const nextDeleteItem = state;
-            nextDeleteItem.splice(action.payload.idx!, 1);
-            return [...nextDeleteItem];
+            return state.filter((each) => {
+                return each.itemId !== action.payload.itemId;
+            });
         default:
             return state;
     }

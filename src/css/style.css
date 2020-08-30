@@ -120,7 +120,7 @@ main {
 
 .item-menu {
   background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
+  position: fixed;
   padding: 0.5rem 1rem;
   top: 0;
   bottom: 0;
@@ -226,7 +226,7 @@ main {
   margin-left: 2rem;
 }
 
-.col__header {
+.col__header-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,11 +272,24 @@ main {
           align-items: center;
 }
 
+.col__ctrl-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2rem 0;
+}
+
 .col-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 2rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .modal {
@@ -316,6 +329,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 0.5rem;
+  z-index: 10;
 }
 
 .modal__input {

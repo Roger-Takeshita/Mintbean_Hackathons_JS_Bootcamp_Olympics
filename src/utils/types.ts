@@ -119,3 +119,19 @@ export interface ModalProps {
     addColumn?: (data: string) => void;
     updateColumnInfo?: (data: ItemReducer) => void;
 }
+
+export interface ColumnEditMenuProps {
+    column: Column;
+    modalOpen: (data: ItemReducer) => void;
+    setShowEditMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface DeleteModalProps {
+    showDeleteModal: boolean;
+    setShowDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+    type: string;
+    item?: Item;
+    column?: Column;
+    deleteItem?: (data: ItemReducer) => void;
+    deleteColumn?: (data: ItemReducer) => void;
+}
