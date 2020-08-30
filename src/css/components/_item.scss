@@ -5,7 +5,7 @@
 
     &__container {
         &:not(:first-child) {
-            margin-top: $margin-xsmall;
+            margin-top: $size-xsmall;
         }
     }
     &__item-box {
@@ -22,19 +22,13 @@
     }
     &__paragraph {
         &--title {
-            font-size: $default-font-size * 1rem;
-            margin-bottom: $margin-xsmall;
-            border-bottom: 1px solid $color-black;
-            height: 3rem;
-            line-height: 3rem;
+            font-size: resize($default-font-size, 1.6);
+            height: 5rem;
+            line-height: 5rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            padding: 0 $padding-xsmall;
-        }
-        &--status {
-            font-size: resize($default-font-size, 0.75);
-            text-align: center;
+            padding: 0 $size-small;
         }
     }
 }

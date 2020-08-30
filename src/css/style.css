@@ -89,19 +89,12 @@ main {
 
 .item__paragraph--title {
   font-size: 1.6rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #000;
-  height: 3rem;
-  line-height: 3rem;
+  height: 5rem;
+  line-height: 5rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 0 1rem;
-}
-
-.item__paragraph--status {
-  font-size: 1.2rem;
-  text-align: center;
+  padding: 0 2rem;
 }
 
 .item-wrapper {
@@ -270,6 +263,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 2rem;
 }
 
 .col__ctrl-box {
@@ -337,7 +331,7 @@ main {
   padding-left: 1rem;
   height: 3rem;
   border-radius: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border: none;
@@ -347,7 +341,7 @@ main {
 .modal__input--description {
   min-height: 20rem;
   padding: 1rem;
-  font-size: 1.92rem;
+  font-size: 1.6rem;
   resize: none;
 }
 
@@ -400,13 +394,13 @@ main {
   border-radius: 0.5rem;
   color: #fff;
   height: 2.5rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   border: none;
   outline-width: 0;
   cursor: pointer;
-  -webkit-box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
-          box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+          box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
@@ -428,8 +422,8 @@ main {
 .btn:hover {
   -webkit-transform: translateY(-0.25rem);
           transform: translateY(-0.25rem);
-  -webkit-box-shadow: 0.6rem 0.6rem 1.2rem rgba(0, 0, 0, 0.7);
-          box-shadow: 0.6rem 0.6rem 1.2rem rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0.6rem 0.6rem 1.2rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0.6rem 0.6rem 1.2rem rgba(0, 0, 0, 0.5);
 }
 
 .btn:active {
@@ -449,15 +443,14 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   padding: 6rem;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
 }
 
 .window-modal__section {
@@ -475,6 +468,10 @@ main {
   text-align: center;
 }
 
+.window-modal__title {
+  font-size: 2rem;
+}
+
 .window-modal__btn {
   position: absolute;
   right: 1rem;
@@ -489,6 +486,41 @@ main {
 
 .window-modal__description-text {
   font-size: 1.6rem;
+}
+
+.delete-modal {
+  background-color: #cccccc;
+  z-index: 20;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+}
+
+.delete-modal__ctrl-box {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.delete-modal__title {
+  font-size: 2rem;
+}
+
+.delete-modal__title--item {
+  font-size: 1.6rem;
+  font-weight: lighter;
 }
 
 .header {

@@ -68,7 +68,6 @@ export interface DragItem extends Item {
 export interface ColumnItem extends DragItem {}
 
 export interface WindowProps {
-    show: boolean;
     onClose: () => void;
     item: Item;
 }
@@ -127,12 +126,13 @@ export interface ColumnEditMenuProps {
 }
 
 export interface DeleteModalProps {
-    showDeleteModal: boolean;
-    setShowDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+    // showDeleteModal: boolean;
+    // setShowDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
     type: string;
     item?: Item;
     column?: Column;
     columnId?: string;
+    onClose?: () => void;
     deleteItem?: (data: ItemReducer) => void;
     deleteItems?: (data: ItemReducer) => void;
     deleteColumn?: (data: ItemReducer) => void;

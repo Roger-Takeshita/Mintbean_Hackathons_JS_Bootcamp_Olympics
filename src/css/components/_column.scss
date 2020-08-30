@@ -11,7 +11,7 @@
     position: relative;
 
     &:not(:first-child) {
-        margin-left: $margin-small;
+        margin-left: $size-small;
     }
     &__header-box {
         display: flex;
@@ -35,10 +35,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: resize($default-font-size, 2);
     }
     &__ctrl-box {
         display: flex;
         justify-content: center;
-        margin: $margin-small 0;
+        margin: $size-small 0;
     }
 }

@@ -28,27 +28,41 @@ const ColumnEditMenu: React.FC<ColumnEditMenuProps> = ({
         setShowDeleteModal(true);
     };
 
+    const handleSubModal = () => {
+        setShowDeleteModal(false);
+    };
+
     return (
         <div
             className="col-edit-menu"
             onClick={handleClose}
             style={{ zIndex: 10, position: 'absolute', right: '-5rem' }}
         >
-            <span onClick={handleClose}>X</span>
-            <ul className="col-edit-menu__ul">
-                <li className="col-edit-menu__li" onClick={handleEdit}>
-                    Edit Column
-                </li>
-                <li className="col-edit-menu__li" onClick={handleDelete}>
-                    Delete Column
-                </li>
-            </ul>
-            <DeleteModal
-                showDeleteModal={showDeleteModal}
-                setShowDeleteModal={setShowDeleteModal}
-                type="column"
-                column={column}
-            />
+            {!showDeleteModal && (
+                <>
+                    <span onClick={handleClose}>X</span>
+                    <ul className="col-edit-menu__ul">
+                        <li className="col-edit-menu__li" onClick={handleEdit}>
+                            Edit Column
+                        </li>
+                        <li
+                            className="col-edit-menu__li"
+                            onClick={handleDelete}
+                        >
+                            Delete Column
+                        </li>
+                    </ul>
+                </>
+            )}
+            {showDeleteModal && (
+                <DeleteModal
+                    // showDeleteModal={showDeleteModal}
+                    // setShowDeleteModal={setShowDeleteModal}
+                    type="column"
+                    column={column}
+                    onClose={handleSubModal}
+                />
+            )}
         </div>
     );
 };

@@ -28,18 +28,18 @@
     }
     &__input {
         width: 100%;
-        padding-left: $padding-xsmall;
+        padding-left: $size-xsmall;
         height: 3rem;
         border-radius: $border-radius;
-        font-size: resize($default-font-size, 0.75);
+        font-size: resize($default-font-size, 1.8);
         transition: all 0.3s;
         border: none;
         outline-width: 0;
 
         &--description {
             min-height: 20rem;
-            padding: $padding-xsmall;
-            font-size: resize($default-font-size, 1.2);
+            padding: $size-xsmall;
+            font-size: resize($default-font-size, 1.6);
             resize: none;
         }
     }
@@ -47,8 +47,8 @@
         height: 2.5rem;
         display: flex;
         flex-grow: 1;
-        font-size: resize($default-font-size, 0.75);
-        padding-left: $padding-xsmall;
+        font-size: resize($default-font-size, 1.2);
+        padding-left: $size-xsmall;
         align-items: center;
         transition: all 0.3s;
     }
@@ -64,6 +64,6 @@
     &__ctrl {
         display: flex;
         justify-content: flex-end;
-        margin-top: $margin-xsmall;
+        margin-top: $size-xsmall;
     }
 }

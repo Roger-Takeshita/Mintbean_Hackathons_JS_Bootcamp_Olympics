@@ -67,13 +67,10 @@ const ItemComponent: React.FC<ItemProps> = ({
                         Menu
                     </button>
                     <p className="item__paragraph--title">{item.itemTitle}</p>
-                    <p className="item__paragraph--status">
-                        {item.itemDescription}
-                    </p>
                 </div>
             </div>
             {showMenu && <ItemMenu item={item} setShowMenu={setShowMenu} />}
-            <Window item={item} onClose={onClose} show={show} />
+            {show && <Window item={item} onClose={onClose} />}
         </div>
     );
 };
