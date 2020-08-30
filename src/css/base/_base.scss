@@ -24,14 +24,34 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: linear-gradient(
-            to right bottom,
-            rgba($color-grey-1, 0.5),
-            rgba($color-grey-3, 0.5)
-        ),
-        url('../assets/images/bg.jpg');
-    background-image: url('../assets/images/bg.jpg');
-    background-size: cover;
+    z-index: 2;
+    // background-image: linear-gradient(
+    //         to right bottom,
+    //         rgba($color-grey-1, 0.5),
+    //         rgba($color-grey-3, 0.5)
+    //     ),
+    //     url('../assets/images/bg.jpg');
+    // background-image: url('../assets/images/bg.jpg');
+    // background-image: url('../assets/icons/svg/018-dojo.svg');
+    // background-size: contain;
+    // background-repeat: no-repeat;
+    // background-position: center;
+}
+
+.background__bamboo {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+.background__dojo {
+    position: absolute;
+    z-index: -1;
+    width: 80vw;
+    height: 80vh;
+    bottom: 2.8rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 main {

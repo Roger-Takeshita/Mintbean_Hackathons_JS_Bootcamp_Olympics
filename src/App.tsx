@@ -6,6 +6,8 @@ import Modal from './components/Modal';
 import { connect } from 'react-redux';
 import { AppProps, ItemReducer } from './utils/types';
 import { modalOpen } from './redux/modal';
+import bamboo from './assets/images/bamboo-2.jpg'
+import dojo from './assets/icons/svg/018-dojo.svg'
 
 const App: React.FC<AppProps> = ({ modalOpen }) => {
     const handleAddColumn = (evt: MouseEvent) => {
@@ -13,22 +15,26 @@ const App: React.FC<AppProps> = ({ modalOpen }) => {
     };
 
     return (
-        <div className="app">
-            <header>
-                <Header />
-            </header>
-            <main>
-                <ColumnWrapper />
-                <div className="add">
-                    <h2>Add Column</h2>
-                    <button onClick={handleAddColumn}>+</button>
-                </div>
-            </main>
-            <footer>
-                <Footer />
-            </footer>
-            <Modal />
-        </div>
+        <>
+            <img className='background__bamboo' src={bamboo} alt='background' />
+            <img className='background__dojo' src={dojo} alt='background-2' />
+            <div className="app">
+                <header>
+                    <Header />
+                </header>
+                <main>
+                    <ColumnWrapper />
+                    <div className="add">
+                        <h2>Add Column</h2>
+                        <button onClick={handleAddColumn}>+</button>
+                    </div>
+                </main>
+                <footer>
+                    <Footer />
+                </footer>
+                <Modal />
+            </div>
+        </>
     );
 };
 
