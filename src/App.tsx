@@ -52,7 +52,7 @@ const App: React.FC<any> = ({ columns, items }) => {
     // };
 
     return (
-        <div className="App">
+        <div className="app">
             <header>
                 <Header />
             </header>

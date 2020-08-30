@@ -77,3 +77,19 @@ export interface ItemReducer {
     dragIndex?: number;
     hoverIndex?: number;
 }
+
+export interface ItemMenuProps {
+    item: Item;
+    items: Item[];
+    setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
+    deleteItem: (idx: ItemReducer) => void
+}
+
+export interface MoveItemsProps {
+    item: any;
+    items?: Item[];
+    columns?: Column[];
+    updateItemColumn: (data: ItemReducer) => void;
+    setShowMoveItem: React.Dispatch<React.SetStateAction<boolean>>
+    setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
+}
