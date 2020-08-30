@@ -118,7 +118,9 @@ function itemsReducer(
                 });
             return [...nextItemColumn];
         case DELETE_ITEM:
-            return state;
+            const nextDeleteItem = state
+            nextDeleteItem.splice(action.payload.idx!, 1)
+            return [...nextDeleteItem];
         default:
             return state;
     }

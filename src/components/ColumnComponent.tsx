@@ -66,9 +66,14 @@ const ColumnComponent: React.FC<ColumnProps> = ({
 
     drag(drop(ref));
 
+    const handleButtonAddItem = () => {
+        // abrir modal
+    }
+
     return (
         <div ref={ref} className={`col ${opacity} ${hovering}`}>
             <div className="col__col-individual">
+                <button onClick={handleButtonAddItem}>+</button>
                 <div className="col__title">{column.columnTitle}</div>
                 <ItemsWrapper
                     columnId={column.columnId}

@@ -1,0 +1,37 @@
+.move-item {
+    position: absolute;
+    top: 39%;
+    left: 59%;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 3;
+    background-color: $color-grey-1;
+    width: 20%;
+    padding: $padding-small;
+    text-align: center;
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+    }
+    &__title {
+        font-size: $font-size-medium;
+        margin-bottom: $margin-small;
+    }
+    &__subtitle {
+        font-size: $font-size-small;
+        padding-bottom: $padding-xsmall;
+        border-bottom: 1px solid $color-black;
+    }
+    &__ul {
+        list-style-type: none;
+        padding: $padding-tiny;
+    }
+    &__li {
+        font-size: 1.6rem;
+        padding: $padding-tiny 0;
+        cursor: pointer;
+    }
+}
+

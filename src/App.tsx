@@ -6,7 +6,7 @@ import Modal from './components/Modal';
 
 const App: React.FC = () => {
     return (
-        <div className="App">
+        <div className="app">
             <header>
                 <Header />
             </header>

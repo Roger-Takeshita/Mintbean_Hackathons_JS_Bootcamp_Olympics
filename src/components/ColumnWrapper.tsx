@@ -25,11 +25,11 @@ const ColumnWrapper: React.FC<ColumnWrapperProps> =
     };
 
     return (
-      <div ref={drop} className="col-wrapper">
+        <div ref={drop} className="col-wrapper">
             {columns.map((col: Column, idx:number) => (
                 <ColumnComponent key={idx} column={col} index={idx} moveIt={moveColumn} isOver={isOver}/>
             ))}
-      </div>
+        </div>
     );
 };
 

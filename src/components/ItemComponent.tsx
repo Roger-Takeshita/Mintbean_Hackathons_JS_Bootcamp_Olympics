@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, MouseEvent } from "react";
 import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import { ITEM_TYPE, ItemProps, DragItem } from '../utils/types';
 import Window from './Window';
+import ItemMenu from './ItemMenu';
 
 const ItemComponent: React.FC<ItemProps> = ({
     item,
@@ -11,6 +12,7 @@ const ItemComponent: React.FC<ItemProps> = ({
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [show, setShow] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     const [, drop] = useDrop({
         accept: ITEM_TYPE,
@@ -52,18 +54,23 @@ const ItemComponent: React.FC<ItemProps> = ({
 
     drag(drop(ref));
 
+    const handleMenu = (evt: MouseEvent) => {
+        evt.stopPropagation();
+        setShowMenu(() => !showMenu);
+    };
+
     return (
-        <>
+        <div className='item__container'>
             <div ref={ref} className={`item ${opacity}`} onClick={onOpen}>
-                <div className="item__item-box">
-                    <p className="item__paragraph--title">{item.itemTitle}</p>
-                    <p className="item__paragraph--status">
-                        {item.itemDescription}
-                    </p>
-                </div>
+            <div className="item__item-box">
+                <button onClick={handleMenu}>Menu</button>
+                <p className="item__paragraph--title">{item.itemTitle}</p>
+                <p className="item__paragraph--status">{item.itemDescription}</p>
             </div>
+            </div>
+            {showMenu && <ItemMenu item={item} setShowMenu={setShowMenu}/>}
             <Window item={item} onClose={onClose} show={show} />
-        </>
+        </div>
     );
 };
 
