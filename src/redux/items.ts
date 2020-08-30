@@ -2,6 +2,7 @@ import { MoveItProps, Item, ItemReducer, ColumnProps } from '../utils/types';
 const ADD_ITEM = 'ADD_ITEM';
 const DELETE_ITEM = 'DELETE_ITEM';
 const UPDATE_ITEM = 'UPDATE_ITEM';
+const UPDATE_ITEM_INFO = 'UPDATE_ITEM_INFO';
 const UPDATE_ITEM_COLUMN = 'UPDATE_ITEM_COLUMN';
 
 export const addItem = (data: ItemReducer) => ({
@@ -11,6 +12,11 @@ export const addItem = (data: ItemReducer) => ({
 
 export const updateItem = (data: ItemReducer) => ({
     type: UPDATE_ITEM,
+    payload: data,
+});
+
+export const updateItemInfo = (data: ItemReducer) => ({
+    type: UPDATE_ITEM_INFO,
     payload: data,
 });
 
@@ -78,7 +84,15 @@ function itemsReducer(
 ) {
     switch (action.type) {
         case ADD_ITEM:
-            return state;
+            const newItem = action.payload;
+            return [
+                ...state,
+                {
+                    itemTitle: newItem.itemTitle,
+                    itemDescription: newItem.itemDescription,
+                    columnId: newItem.columnId,
+                },
+            ];
         case UPDATE_ITEM:
             const nextItem = state.filter(
                 (item, idx) => idx !== action.payload.dragIndex
@@ -90,6 +104,9 @@ function itemsReducer(
                 state[action.payload.dragIndex!]
             );
             return [...nextItem];
+        case UPDATE_ITEM_INFO:
+            console.log(action.payload);
+            return state;
         case UPDATE_ITEM_COLUMN:
             const nextItemColumn = state
                 .filter((each) => {

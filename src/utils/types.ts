@@ -78,6 +78,7 @@ export interface ItemReducer {
     hoverIndex?: number;
 }
 
+
 export interface ItemMenuProps {
     item: Item;
     items: Item[];
@@ -93,3 +94,19 @@ export interface MoveItemsProps {
     setShowMoveItem: React.Dispatch<React.SetStateAction<boolean>>
     setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+export interface ModalProps {
+    modal: {
+        itemTitle: string;
+        itemDescription: string;
+        columnId: number;
+        index: number;
+    };
+    mode?: string;
+    modalClose: () => void;
+    addItem?: (data: ItemReducer) => void;
+    updateItemInfo?: (data: ItemReducer) => void;
+    addColumn?: (data: string) => void;
+    updateColumnInfo?: (data: string) => void;
+}
+

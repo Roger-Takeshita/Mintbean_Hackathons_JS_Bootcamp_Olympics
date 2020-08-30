@@ -1,0 +1,29 @@
+.btn {
+    width: 7.5rem;
+    border-radius: $border-radius;
+    color: $color-white;
+    height: 2.5rem;
+    font-size: resize($default-font-size, 0.75);
+    font-weight: bold;
+    border: none;
+    outline-width: 0;
+    cursor: pointer;
+    box-shadow: 0.5rem 0.5rem 1rem rgba($color-black, 0.5);
+    transition: all 0.15s ease-in-out;
+
+    &--ok {
+        background-color: $color-green;
+    }
+    &--cancel {
+        margin-left: $margin-xsmall;
+        background-color: $color-red;
+    }
+    &:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0.6rem 0.6rem 1.2rem rgba($color-black, 0.7);
+    }
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0.5rem 0.5rem 1rem rgba($color-black, 0.5);
+    }
+}
