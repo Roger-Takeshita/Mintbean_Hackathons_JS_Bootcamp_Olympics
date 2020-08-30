@@ -7,7 +7,7 @@
     z-index: 3;
     background-color: $color-grey-1;
     width: 20%;
-    padding: $padding-small;
+    padding: $size-small;
     text-align: center;
     &__close {
         position: absolute;
@@ -16,21 +16,21 @@
         cursor: pointer;
     }
     &__title {
-        font-size: $font-size-medium;
-        margin-bottom: $margin-small;
+        font-size: resize($default-font-size, 2.4);
+        margin-bottom: $size-small;
     }
     &__subtitle {
-        font-size: $font-size-small;
-        padding-bottom: $padding-xsmall;
+        font-size: resize($default-font-size, 1.8);
+        padding-bottom: $size-xsmall;
         border-bottom: 1px solid $color-black;
     }
     &__ul {
         list-style-type: none;
-        padding: $padding-tiny;
+        padding: $size-tiny;
     }
     &__li {
         font-size: 1.6rem;
-        padding: $padding-tiny 0;
+        padding: $size-tiny 0;
         cursor: pointer;
     }
 }

@@ -10,7 +10,7 @@
     &__attribution-box {
         color: $color-grey-3;
         a {
-            font-size: 0.5rem;
+            font-size: resize($default-font-size, 0.5);
             text-decoration: none;
             color: $color-grey-3;
         }
@@ -20,7 +20,7 @@
     &__dev {
         &--developed {
             font-family: DancingScript-Bold, sans-serif;
-            font-size: 1.5rem;
+            font-size: resize($default-font-size, 1.5);
         }
         &--name {
         }
@@ -28,7 +28,7 @@
     &__dev-link {
         font-family: Shojumaru, sans-serif;
         text-decoration: none;
-        font-size: 1.2rem;
+        font-size: resize($default-font-size, 1.2);
         color: $color-white;
 
         &:hover {

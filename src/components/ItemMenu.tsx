@@ -35,25 +35,31 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
         // setTimeout(() => setShowMenu(false), 1000);
     };
 
+    const handleSubModal = () => {
+        setShowDeleteModal(false);
+    };
+
     return (
         <div onClick={() => setShowMenu(false)} className="item-menu">
-            <ul className="item-menu__ul">
-                <span
-                    className="item-menu__close"
-                    onClick={() => setShowMenu(false)}
-                >
-                    X
-                </span>
-                <li className="item-menu__li" onClick={handleEdit}>
-                    Edit
-                </li>
-                <li className="item-menu__li" onClick={handleMove}>
-                    Move
-                </li>
-                <li className="item-menu__li" onClick={handleDelete}>
-                    Delete
-                </li>
-            </ul>
+            {!showDeleteModal && (
+                <ul className="item-menu__ul">
+                    <span
+                        className="item-menu__close"
+                        onClick={() => setShowMenu(false)}
+                    >
+                        X
+                    </span>
+                    <li className="item-menu__li" onClick={handleEdit}>
+                        Edit
+                    </li>
+                    <li className="item-menu__li" onClick={handleMove}>
+                        Move
+                    </li>
+                    <li className="item-menu__li" onClick={handleDelete}>
+                        Delete
+                    </li>
+                </ul>
+            )}
             {showMoveItem && (
                 <MoveItem
                     item={item}
@@ -61,12 +67,15 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
                     setShowMenu={setShowMenu}
                 />
             )}
-            <DeleteModal
-                showDeleteModal={showDeleteModal}
-                setShowDeleteModal={setShowDeleteModal}
-                type="item"
-                item={item}
-            />
+            {showDeleteModal && (
+                <DeleteModal
+                    // showDeleteModal={showDeleteModal}
+                    // setShowDeleteModal={setShowDeleteModal}
+                    type="item"
+                    item={item}
+                    onClose={handleSubModal}
+                />
+            )}
         </div>
     );
 };

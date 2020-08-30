@@ -1,21 +1,17 @@
-import React, { MouseEvent } from 'react';
-import ReactModal from 'react-modal';
+import React, { MouseEvent, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { DeleteModalProps, ItemReducer } from '../utils/types';
 import { deleteColumn } from '../redux/columns';
 import { deleteItem, deleteItems } from '../redux/items';
 
-ReactModal.setAppElement('#root');
-
 const DeleteModal: React.FC<DeleteModalProps> = ({
-    showDeleteModal,
-    setShowDeleteModal,
     type,
     item,
     column,
     deleteItem,
     deleteItems,
     deleteColumn,
+    onClose,
 }) => {
     const handleDelete = (evt: MouseEvent) => {
         if (type === 'item') {
@@ -24,33 +20,27 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
             deleteColumn!({ columnId: column!.columnId });
             deleteItems!({ columnId: column!.columnId });
         }
-        setShowDeleteModal(false);
+        onClose!();
     };
 
     return (
-        <ReactModal
-            isOpen={showDeleteModal}
-            onRequestClose={() => setShowDeleteModal(false)}
-            overlayClassName="ReactModal__Overlay"
-            className="delete-modal"
-            shouldCloseOnEsc={true}
-        >
-            <h2 className="delete-modal__title">{`Are you sure you want to delete the ${type}: ${
-                type === 'item' ? item!.itemTitle : column!.columnTitle
-            }?`}</h2>
-            <button
-                className="btn btn__delete-modal-delete"
-                onClick={handleDelete}
-            >
-                Yes
-            </button>
-            <button
-                className="btn btn__delete-modal-cancel"
-                onClick={() => setShowDeleteModal(false)}
-            >
-                Cancel
-            </button>
-        </ReactModal>
+        <div className="delete-modal">
+            <h2 className="delete-modal__title">
+                Are you sure you want to delete the {type}:<br />
+                <span className="delete-modal__title--item">
+                    {(item && item!.itemTitle) ||
+                        (column && column!.columnTitle)}
+                </span>
+            </h2>
+            <div className="delete-modal__ctrl-box">
+                <button className="btn btn--ok" onClick={handleDelete}>
+                    Yes
+                </button>
+                <button className="btn btn--cancel" onClick={() => onClose!()}>
+                    Cancel
+                </button>
+            </div>
+        </div>
     );
 };
 
