@@ -12,6 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { updateItemColumn } from '../redux/items';
 import ItemsWrapper from './ItemsWrapper';
+import { modalOpen } from "../redux/modal";
 
 const ColumnComponent: React.FC<ColumnProps> = ({
     isOver,
@@ -20,6 +21,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     moveIt,
     columns,
     updateItemColumn,
+    modalOpen
 }) => {
     const ref = useRef<HTMLDivElement>(null);
     const hovering = isOver ? 'is-over' : '';
@@ -67,7 +69,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     drag(drop(ref));
 
     const handleButtonAddItem = () => {
-        // abrir modal
+        modalOpen({mode: 'add-item', columnId: column.columnId});
     }
 
     return (
@@ -90,6 +92,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
     updateItemColumn: (data: ItemReducer) => dispatch(updateItemColumn(data)),
+    modalOpen: (data: ItemReducer) => dispatch(modalOpen(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColumnComponent);

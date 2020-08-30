@@ -1,4 +1,5 @@
 import { MoveItProps, Item, ItemReducer, ColumnProps } from '../utils/types';
+import { v4 as uuidv4 } from 'uuid';
 const ADD_ITEM = 'ADD_ITEM';
 const DELETE_ITEM = 'DELETE_ITEM';
 const UPDATE_ITEM = 'UPDATE_ITEM';
@@ -32,46 +33,55 @@ export const deleteItem = (idx: ItemReducer) => ({
 
 const initialState: Item[] = [
     {
+        itemId: uuidv4(),
         columnId: 0,
         itemTitle: 'First Item of column 1x1',
         itemDescription: 'Description 1x1',
     },
     {
+        itemId: uuidv4(),
         columnId: 0,
         itemTitle: 'First Item of column 1x2',
         itemDescription: 'Description 1x2',
     },
     {
+        itemId: uuidv4(),
         columnId: 0,
         itemTitle: 'First Item of column 1x3',
         itemDescription: 'Description 1x3',
     },
     {
+        itemId: uuidv4(),
         columnId: 1,
         itemTitle: 'Second Item of column 2x1',
         itemDescription: 'Description 2x1',
     },
     {
+        itemId: uuidv4(),
         columnId: 1,
         itemTitle: 'Second Item of column 2x2',
         itemDescription: 'Description 2x2',
     },
     {
+        itemId: uuidv4(),
         columnId: 1,
         itemTitle: 'Second Item of column 2x3',
         itemDescription: 'Description 2x3',
     },
     {
+        itemId: uuidv4(),
         columnId: 2,
         itemTitle: 'Third Item of column 3x1',
         itemDescription: 'Description 3x1',
     },
     {
+        itemId: uuidv4(),
         columnId: 2,
         itemTitle: 'Third Item of column 3x2',
         itemDescription: 'Description 3x2',
     },
     {
+        itemId: uuidv4(),
         columnId: 2,
         itemTitle: 'Third Item of column 3x3',
         itemDescription: 'Description 3x3',
@@ -106,7 +116,22 @@ function itemsReducer(
             return [...nextItem];
         case UPDATE_ITEM_INFO:
             console.log(action.payload);
-            return state;
+            const itemIndex = state.findIndex(each => each.itemId === action.payload.itemId)
+            const nextUpdate = state
+                .filter((each) => {
+                    return each.itemId !== action.payload.itemId;
+                });
+            // console.log(nextUpdate)
+            const updatedItem = state[itemIndex]
+            updatedItem!.columnId = action.payload.columnId!;
+            updatedItem!.itemTitle = action.payload.itemTitle!;
+            updatedItem!.itemDescription = action.payload.itemDescription!;
+            nextUpdate.splice(
+                itemIndex,
+                1,
+                updatedItem
+            )
+            return [...state, nextUpdate];
         case UPDATE_ITEM_COLUMN:
             const nextItemColumn = state
                 .filter((each) => {

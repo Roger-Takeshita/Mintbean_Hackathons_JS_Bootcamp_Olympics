@@ -4,6 +4,7 @@ export const ITEM_TYPE = 'ITEM';
 export const COLUMN_TYPE = 'COLUMN';
 
 export interface Item {
+    itemId: string;
     itemTitle: string;
     itemDescription: string;
     columnId: number;
@@ -47,6 +48,7 @@ export interface ColumnProps extends BaseColumnItemProps {
     column: Column;
     columns: Column[];
     updateItemColumn: (data: ItemReducer) => void;
+    modalOpen: (data: ItemReducer) => void;
 }
 
 export interface ItemProps extends BaseColumnItemProps {
@@ -76,14 +78,16 @@ export interface ItemReducer {
     item?: Item;
     dragIndex?: number;
     hoverIndex?: number;
+    mode?: string;
+    itemId?: string;
 }
-
 
 export interface ItemMenuProps {
     item: Item;
     items: Item[];
-    setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
-    deleteItem: (idx: ItemReducer) => void
+    setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+    deleteItem: (idx: ItemReducer) => void;
+    modalOpen: (data: ItemReducer) => void;
 }
 
 export interface MoveItemsProps {
@@ -91,8 +95,8 @@ export interface MoveItemsProps {
     items?: Item[];
     columns?: Column[];
     updateItemColumn: (data: ItemReducer) => void;
-    setShowMoveItem: React.Dispatch<React.SetStateAction<boolean>>
-    setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
+    setShowMoveItem: React.Dispatch<React.SetStateAction<boolean>>;
+    setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ModalProps {
@@ -101,12 +105,12 @@ export interface ModalProps {
         itemDescription: string;
         columnId: number;
         index: number;
+        mode?: string;
     };
-    mode?: string;
+    // mode?: string;
     modalClose: () => void;
     addItem?: (data: ItemReducer) => void;
     updateItemInfo?: (data: ItemReducer) => void;
     addColumn?: (data: string) => void;
     updateColumnInfo?: (data: string) => void;
 }
-

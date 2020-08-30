@@ -1,9 +1,10 @@
+import { ItemReducer } from '../utils/types';
 const MODAL_OPEN = 'MODAL_OPEN';
 const MODAL_CLOSE = 'MODAL_CLOSE';
 
 export const modalOpen = (data: {}) => ({
     type: MODAL_OPEN,
-    payload: data,
+    payload: data
 });
 
 export const modalClose = () => ({
@@ -14,17 +15,15 @@ const initialState = {
     itemTitle: '',
     itemDescription: '',
     columnId: -1,
-    index: -1,
+    mode: ''
 };
 function modalReducer(
     state = initialState,
-    action: { type: string; payload: {} }
+    action: { type: string; payload: ItemReducer}
 ) {
     switch (action.type) {
         case MODAL_OPEN:
-            //TODO create add new information to modal
-
-            break;
+            return {...action.payload};
         case MODAL_CLOSE:
             return initialState;
         default:
