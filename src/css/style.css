@@ -10,6 +10,54 @@
   src: local("Shojumaru-6ZlM"), url("../assets/fonts/Shojumaru-6ZlM.ttf") format("opentype");
 }
 
+@-webkit-keyframes move-in-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move-in-left {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes move-in-left-100 {
+  0% {
+    -webkit-transform: translate(0) translateY(-1.5rem) rotate(-135deg);
+            transform: translate(0) translateY(-1.5rem) rotate(-135deg);
+  }
+  100% {
+    -webkit-transform: translateX(35rem) translateY(-1.5rem) rotate(-135deg);
+            transform: translateX(35rem) translateY(-1.5rem) rotate(-135deg);
+  }
+}
+
+@keyframes move-in-left-100 {
+  0% {
+    -webkit-transform: translate(0) translateY(-1.5rem) rotate(-135deg);
+            transform: translate(0) translateY(-1.5rem) rotate(-135deg);
+  }
+  100% {
+    -webkit-transform: translateX(35rem) translateY(-1.5rem) rotate(-135deg);
+            transform: translateX(35rem) translateY(-1.5rem) rotate(-135deg);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -116,9 +164,9 @@ main {
   position: fixed;
   padding: 0.5rem 1rem;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,13 +187,19 @@ main {
   padding: 4rem;
   border-radius: 10px;
   position: relative;
+  min-width: 30rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .item-menu__li {
-  padding: 4rem;
+  padding: 2rem;
   font-size: 1.8rem;
   cursor: pointer;
   border-bottom: 1px solid #000;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .item-menu__li:last-of-type {
@@ -157,6 +211,34 @@ main {
   right: 20px;
   top: 10px;
   cursor: pointer;
+}
+
+.item-menu__svg {
+  height: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  opacity: 1;
+  -webkit-transform: rotate(-135deg) translate(35%, 35%);
+          transform: rotate(-135deg) translate(35%, 35%);
+}
+
+.item-menu__svg--animated {
+  -webkit-animation: move-in-left 0.5s ease-out;
+          animation: move-in-left 0.5s ease-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.item-menu__li:hover .item-menu__svg {
+  -webkit-transform: rotate(-135deg) translate(0);
+          transform: rotate(-135deg) translate(0);
+  -webkit-animation: move-in-left-100 0.3s ease-out;
+          animation: move-in-left-100 0.3s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .move-item {
@@ -590,4 +672,3 @@ main {
 .footer__dev-link:hover {
   color: #3e752d;
 }
-/*# sourceMappingURL=style.css.map */

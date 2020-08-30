@@ -14,7 +14,7 @@ import { updateItemColumn } from '../redux/items';
 import ItemsWrapper from './ItemsWrapper';
 import ColumnEditMenu from './ColumnEditMenu';
 import { modalOpen } from '../redux/modal';
-import { ReactComponent as Sticks } from '../assets/icons/svg/004-sticks.svg'
+import { ReactComponent as Sticks } from '../assets/icons/svg/004-sticks.svg';
 
 const ColumnComponent: React.FC<ColumnProps> = ({
     isOver,
@@ -106,7 +106,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
                         className="btn btn--add"
                         onClick={handleButtonAddItem}
                     >
-                        <Sticks className='col__sticks-plus' />
+                        <Sticks className="col__sticks-plus" />
                     </button>
                 </div>
             </div>

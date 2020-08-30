@@ -1,10 +1,11 @@
-import React, { useState, MouseEvent, useEffect } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import MoveItem from './MoveItem';
 import { ItemMenuProps, ItemReducer } from '../utils/types';
 import { deleteItem } from '../redux/items';
 import { connect } from 'react-redux';
 import { modalOpen } from '../redux/modal';
 import DeleteModal from './DeleteModal';
+import { ReactComponent as KunaiSVG } from '../assets/icons/svg/020-kunai.svg';
 
 const ItemMenu: React.FC<ItemMenuProps> = ({
     item,
@@ -28,11 +29,7 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
     };
     const handleDelete = (evt: MouseEvent) => {
         evt.stopPropagation();
-        // console.log("delete");
-        // const idx = items.findIndex((each) => each.itemTitle === item.itemTitle);
-        // deleteItem({ idx });
         setShowDeleteModal(true);
-        // setTimeout(() => setShowMenu(false), 1000);
     };
 
     const handleSubModal = () => {
@@ -44,19 +41,31 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
             {!showDeleteModal && (
                 <ul className="item-menu__ul">
                     <span
-                        className="item-menu__close"
+                        className="item-menu__close animated--hover"
                         onClick={() => setShowMenu(false)}
                     >
                         X
                     </span>
-                    <li className="item-menu__li" onClick={handleEdit}>
+                    <li
+                        className="item-menu__li item-menu__svg--animated"
+                        onClick={handleEdit}
+                    >
                         Edit
+                        <KunaiSVG className="item-menu__svg" />
                     </li>
-                    <li className="item-menu__li" onClick={handleMove}>
+                    <li
+                        className="item-menu__li item-menu__svg--animated"
+                        onClick={handleMove}
+                    >
                         Move
+                        <KunaiSVG className="item-menu__svg" />
                     </li>
-                    <li className="item-menu__li" onClick={handleDelete}>
+                    <li
+                        className="item-menu__li item-menu__svg--animated"
+                        onClick={handleDelete}
+                    >
                         Delete
+                        <KunaiSVG className="item-menu__svg" />
                     </li>
                 </ul>
             )}
@@ -68,13 +77,7 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
                 />
             )}
             {showDeleteModal && (
-                <DeleteModal
-                    // showDeleteModal={showDeleteModal}
-                    // setShowDeleteModal={setShowDeleteModal}
-                    type="item"
-                    item={item}
-                    onClose={handleSubModal}
-                />
+                <DeleteModal type="item" item={item} onClose={handleSubModal} />
             )}
         </div>
     );

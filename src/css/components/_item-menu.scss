@@ -3,13 +3,14 @@
     position: fixed;
     padding: $size-tiny $size-xsmall;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
+
     &__ul {
         background-color: $color-grey-1;
         width: 25%;
@@ -18,12 +19,17 @@
         padding: $size-medium;
         border-radius: 10px;
         position: relative;
+        min-width: 30rem;
+        transition: all 0.2s ease-in-out;
     }
     &__li {
-        padding: $size-medium;
+        padding: $size-small;
         font-size: resize($default-font-size, 1.8);
         cursor: pointer;
         border-bottom: 1px solid $color-black;
+        position: relative;
+        height: 100%;
+        width: 100%;
     }
     &__li:last-of-type {
         border-bottom: none;
@@ -33,5 +39,24 @@
         right: 20px;
         top: 10px;
         cursor: pointer;
+    }
+    &__svg {
+        height: 3rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        opacity: 1;
+        transform: rotate(-135deg) translate(35%, 35%);
+
+        &--animated {
+            animation: move-in-left 0.5s ease-out;
+            animation-fill-mode: backwards;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+    &__li:hover &__svg {
+        transform: rotate(-135deg) translate(0);
+        animation: move-in-left-100 0.3s ease-out;
+        animation-fill-mode: forwards;
     }
 }

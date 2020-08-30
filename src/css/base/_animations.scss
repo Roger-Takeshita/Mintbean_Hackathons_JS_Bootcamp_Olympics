@@ -1,0 +1,19 @@
+@keyframes move-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes move-in-left-100 {
+    0% {
+        transform: translate(0) translateY(-1.5rem) rotate(-135deg);
+    }
+    100% {
+        transform: translateX(35rem) translateY(-1.5rem) rotate(-135deg);
+    }
+}
