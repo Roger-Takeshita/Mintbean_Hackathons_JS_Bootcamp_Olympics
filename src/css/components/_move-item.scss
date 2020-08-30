@@ -2,13 +2,13 @@
     position: absolute;
     top: 39%;
     left: 59%;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-radius: $border-radius-large;
     z-index: 3;
     background-color: $color-grey-1;
-    width: 20%;
     padding: $size-small;
     text-align: center;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+
     &__close {
         position: absolute;
         top: 10px;
@@ -17,21 +17,14 @@
     }
     &__title {
         font-size: resize($default-font-size, 2.4);
-        margin-bottom: $size-small;
+        text-transform: uppercase;
+        border-bottom: 1px solid $color-black;
     }
     &__subtitle {
         font-size: resize($default-font-size, 1.8);
         padding-bottom: $size-xsmall;
         border-bottom: 1px solid $color-black;
     }
-    &__ul {
-        list-style-type: none;
-        padding: $size-tiny;
-    }
-    &__li {
-        font-size: 1.6rem;
-        padding: $size-tiny 0;
-        cursor: pointer;
-    }
+    @include menu-style($size-small);
+    @include kunai-svg;
 }
-

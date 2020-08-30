@@ -26,7 +26,6 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
 
     const handleMove = (evt: MouseEvent) => {
         evt.stopPropagation();
-        console.log('move');
         setShowMoveItem(() => !showMoveItem);
     };
     const handleDelete = (evt: MouseEvent) => {
@@ -43,12 +42,15 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
             {!showDeleteModal && (
                 <ul className="item-menu__ul">
                     <span
-                        className="item-menu__close animated--hover"
+                        className="item-menu__close"
                         onClick={() => setShowMenu(false)}
                         onMouseEnter={() => setHovered(true)}
                         onMouseLeave={() => setHovered(false)}
                     >
-                        <Katana hovered={hovered} className='item-menu__katana' />
+                        <Katana
+                            hovered={hovered}
+                            className="item-menu__katana"
+                        />
                     </span>
                     <li
                         className="item-menu__li item-menu__svg--animated"
