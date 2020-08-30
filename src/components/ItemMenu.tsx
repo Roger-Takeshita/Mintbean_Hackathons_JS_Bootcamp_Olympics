@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { modalOpen } from '../redux/modal';
 import DeleteModal from './DeleteModal';
 import { ReactComponent as KunaiSVG } from '../assets/icons/svg/020-kunai.svg';
+import Katana from '../assets/icons/svg/002-katana';
 
 const ItemMenu: React.FC<ItemMenuProps> = ({
     item,
@@ -16,6 +17,7 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
 }) => {
     const [showMoveItem, setShowMoveItem] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [hovered, setHovered] = useState(false);
 
     const handleEdit = (evt: MouseEvent) => {
         evt.stopPropagation();
@@ -43,8 +45,10 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
                     <span
                         className="item-menu__close animated--hover"
                         onClick={() => setShowMenu(false)}
+                        onMouseEnter={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}
                     >
-                        X
+                        <Katana hovered={hovered} className='item-menu__katana' />
                     </span>
                     <li
                         className="item-menu__li item-menu__svg--animated"
