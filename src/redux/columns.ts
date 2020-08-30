@@ -1,4 +1,4 @@
-import { MoveItProps, Column, ItemReducer } from '../utils/types';
+import { MoveItProps, ItemReducer } from '../utils/types';
 import { v4 as uuidv4 } from 'uuid';
 const ADD_COLUMN = 'ADD_COLUMN';
 const DELETE_COLUMN = 'DELETE_COLUMN';
