@@ -28,15 +28,15 @@ export const deleteColumn = (id: ItemReducer) => ({
 const initialState = [
     {
         columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
-        columnTitle: 'First Column',
+        columnTitle: 'To Do',
     },
     {
         columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
-        columnTitle: 'Second Column',
+        columnTitle: 'In Progress',
     },
     {
         columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
-        columnTitle: 'Third Column',
+        columnTitle: 'Done',
     },
 ];
 

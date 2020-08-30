@@ -14,7 +14,8 @@ import { updateItemColumn } from '../redux/items';
 import ItemsWrapper from './ItemsWrapper';
 import ColumnEditMenu from './ColumnEditMenu';
 import { modalOpen } from '../redux/modal';
-import { ReactComponent as Sticks } from '../assets/icons/svg/004-sticks.svg';
+import { ReactComponent as Sticks } from '../assets/icons/svg/004-sticks.svg'
+import { ReactComponent as Scrolls } from '../assets/icons/svg/026-scrolls.svg'
 
 const ColumnComponent: React.FC<ColumnProps> = ({
     isOver,
@@ -88,7 +89,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
                         className="col__column-btn"
                         onClick={handleButtonEditColumn}
                     >
-                        Edit
+                        <Scrolls className='col__scrolls' />
                     </button>
                     {showEditMenu && (
                         <ColumnEditMenu

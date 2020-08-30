@@ -1,6 +1,6 @@
 .col {
     background-color: $color-grey-1;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba($color-green-3,0.6);
     border-radius: $border-radius;
     width: 30rem;
     display: flex;
@@ -13,12 +13,25 @@
     &__header-box {
         display: flex;
         flex-grow: 1;
-        height: 3rem;
+        height: 5rem;
+        color: $color-white;
     }
     &__column-btn {
         position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
+        top: $size-tiny;
+        right: $size-tiny;
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        padding: $size-tiny;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__scrolls{
+        width: 3rem;
+        // height: 2rem;
     }
     &__col-individual {
         display: flex;
@@ -32,12 +45,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: resize($default-font-size, 2);
+        font-size: resize($default-font-size, 2.2);
+        letter-spacing: 1.1px;
     }
     &__ctrl-box {
         display: flex;
         justify-content: center;
-        margin: $size-small 0;
+        margin: 1.5rem 0;
     }
     &__sticks-plus {
         width: 2rem;
