@@ -108,7 +108,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: pink;
+  background-color: rgba(74, 84, 77, 0.6);
 }
 
 .item-menu {
@@ -203,6 +203,7 @@ main {
 
 .col {
   background-color: #cccccc;
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 0.5rem;
   width: 30rem;
   display: -webkit-box;
@@ -274,6 +275,13 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 2rem 0;
+}
+
+.col__sticks-plus {
+  width: 2rem;
+  height: 2rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .col-wrapper {
@@ -415,8 +423,9 @@ main {
 }
 
 .btn--add {
-  width: 50%;
-  background-color: #6e6e6e;
+  background-color: #cccccc;
+  padding: 1rem;
+  height: 4rem;
 }
 
 .btn:hover {
