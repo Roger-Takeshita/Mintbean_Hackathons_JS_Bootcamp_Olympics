@@ -5,12 +5,34 @@
     // background-repeat: no-repeat;
     // background-size: contain;
     // background-position: center;
-    width: 300px;
-    height: 360px;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
+    &:not(:first-child) {
+        margin-left: $margin-small;
+    }
+    &__header {
+        display: flex;
+        flex-grow: 1;
+        height: 3rem;
+    }
+    &__column-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
     &__col-individual {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+    }
+    &__title {
+        height: 100%;
+        width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
     }

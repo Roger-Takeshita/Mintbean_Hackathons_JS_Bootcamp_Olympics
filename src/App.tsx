@@ -19,7 +19,7 @@ const App: React.FC<AppProps> = ({ modalOpen }) => {
             </header>
             <main>
                 <ColumnWrapper />
-                <div>
+                <div className="add">
                     <h2>Add Column</h2>
                     <button onClick={handleAddColumn}>+</button>
                 </div>

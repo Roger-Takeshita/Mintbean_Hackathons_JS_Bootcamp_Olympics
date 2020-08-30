@@ -83,10 +83,15 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     return (
         <div ref={ref} className={`col ${opacity} ${hovering}`}>
             <div className="col__col-individual">
-                <section>
+                <div className="col__header">
                     <div className="col__title">{column.columnTitle}</div>
-                    <button onClick={handleButtonEditColumn}>Edit</button>
-                </section>
+                    <button
+                        className="col__column-btn"
+                        onClick={handleButtonEditColumn}
+                    >
+                        Edit
+                    </button>
+                </div>
                 <ItemsWrapper
                     columnId={column.columnId}
                     onDropItem={onDropItem}

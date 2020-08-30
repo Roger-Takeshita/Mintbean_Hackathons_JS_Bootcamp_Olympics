@@ -1,0 +1,12 @@
+.header {
+    height: 3rem;
+    background-color: rgba($color-green-3, 0.8);
+
+    &__logo-box {
+        height: 100%;
+        background-color: red;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 $padding-small;
+    }
+}

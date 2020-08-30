@@ -1,20 +1,36 @@
 .item {
     display: flex;
     flex-direction: column;
-    width: 30rem;
-    margin: $margin-xsmall;
+    width: 100%;
 
+    &__container {
+        &:not(:first-child) {
+            margin-top: $margin-xsmall;
+        }
+    }
     &__item-box {
         border: 1px solid $color-black;
         border-style: dotted;
         background-color: $color-grey-0;
         border-radius: $border-radius;
+        position: relative;
+    }
+    &__item-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
     }
     &__paragraph {
         &--title {
             font-size: $default-font-size * 1rem;
             margin-bottom: $margin-xsmall;
             border-bottom: 1px solid $color-black;
+            height: 3rem;
+            line-height: 3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 $padding-xsmall;
         }
         &--status {
             font-size: resize($default-font-size, 0.75);

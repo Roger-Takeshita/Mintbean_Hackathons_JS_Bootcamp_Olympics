@@ -1,4 +1,4 @@
-import React, { useRef, useState, MouseEvent } from "react";
+import React, { useRef, useState, MouseEvent } from 'react';
 import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import { ITEM_TYPE, ItemProps, DragItem } from '../utils/types';
 import Window from './Window';
@@ -60,15 +60,19 @@ const ItemComponent: React.FC<ItemProps> = ({
     };
 
     return (
-        <div className='item__container'>
+        <div className="item__container">
             <div ref={ref} className={`item ${opacity}`} onClick={onOpen}>
-            <div className="item__item-box">
-                <button onClick={handleMenu}>Menu</button>
-                <p className="item__paragraph--title">{item.itemTitle}</p>
-                <p className="item__paragraph--status">{item.itemDescription}</p>
+                <div className="item__item-box">
+                    <button className="item__item-btn" onClick={handleMenu}>
+                        Menu
+                    </button>
+                    <p className="item__paragraph--title">{item.itemTitle}</p>
+                    <p className="item__paragraph--status">
+                        {item.itemDescription}
+                    </p>
+                </div>
             </div>
-            </div>
-            {showMenu && <ItemMenu item={item} setShowMenu={setShowMenu}/>}
+            {showMenu && <ItemMenu item={item} setShowMenu={setShowMenu} />}
             <Window item={item} onClose={onClose} show={show} />
         </div>
     );

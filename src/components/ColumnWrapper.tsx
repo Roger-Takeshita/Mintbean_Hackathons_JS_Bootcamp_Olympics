@@ -1,41 +1,52 @@
 import React from 'react';
-import { useDrop } from "react-dnd";
-import { connect } from "react-redux";
-import { COLUMN_TYPE, ColumnWrapperProps, Column, MoveItProps } from "../utils/types";
+import { useDrop } from 'react-dnd';
+import { connect } from 'react-redux';
+import {
+    COLUMN_TYPE,
+    ColumnWrapperProps,
+    Column,
+    MoveItProps,
+} from '../utils/types';
 import { updateColumn } from '../redux/columns';
 import ColumnComponent from './ColumnComponent';
 
 const ColumnWrapper: React.FC<ColumnWrapperProps> =
-    // ({ onDropColumn, 
+    // ({ onDropColumn,
     ({ columns, updateColumn }) => {
-    const [{ isOver, canDrop }, drop] = useDrop({
-        accept: COLUMN_TYPE,
-        // drop: onDropColumn(column, monitor),
-        //! Usar pra mudar CSS
-        // collect: (monitor) => ({
-        //     isOver: monitor.isOver(),
-        //     canDrop: monitor.canDrop()
-        // })
-    })
+        const [{ isOver, canDrop }, drop] = useDrop({
+            accept: COLUMN_TYPE,
+            // drop: onDropColumn(column, monitor),
+            //! Usar pra mudar CSS
+            // collect: (monitor) => ({
+            //     isOver: monitor.isOver(),
+            //     canDrop: monitor.canDrop()
+            // })
+        });
 
-    // const isActive = isOver && canDrop;
+        // const isActive = isOver && canDrop;
 
-    const moveColumn = (dragIndex: number, hoverIndex: number) => {
-        updateColumn({ dragIndex, hoverIndex });
+        const moveColumn = (dragIndex: number, hoverIndex: number) => {
+            updateColumn({ dragIndex, hoverIndex });
+        };
+
+        return (
+            <div ref={drop} className="col-wrapper">
+                {columns.map((col: Column, idx: number) => (
+                    <ColumnComponent
+                        key={idx}
+                        column={col}
+                        index={idx}
+                        moveIt={moveColumn}
+                        isOver={isOver}
+                    />
+                ))}
+            </div>
+        );
     };
 
-    return (
-        <div ref={drop} className="col-wrapper">
-            {columns.map((col: Column, idx:number) => (
-                <ColumnComponent key={idx} column={col} index={idx} moveIt={moveColumn} isOver={isOver}/>
-            ))}
-        </div>
-    );
-};
-
 const mapStateToProps = (state: any) => ({
-    columns: state.columns
-})
+    columns: state.columns,
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
     updateColumn: (data: MoveItProps) => dispatch(updateColumn(data)),

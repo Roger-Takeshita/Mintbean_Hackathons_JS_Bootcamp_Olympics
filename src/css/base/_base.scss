@@ -28,4 +28,17 @@ body {
     // background-repeat: no-repeat;
     // background-size: cover;
     // background-position: center;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba($color-grey-1, 0.5),
+            rgba($color-grey-3, 0.5)
+        ),
+        url('../assets/images/bg.jpg');
+    background-image: url('../assets/images/bg.jpg');
+    background-size: cover;
+}
+
+main {
+    height: 100%;
+    display: flex;
 }
