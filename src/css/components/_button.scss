@@ -19,8 +19,9 @@
         background-color: $color-red;
     }
     &--add {
-        width: 50%;
-        background-color: $color-grey-3;
+        background-color: $color-grey-1;
+        padding: $size-xsmall;
+        height: 4rem;
     }
     &:hover {
         transform: translateY(-0.25rem);

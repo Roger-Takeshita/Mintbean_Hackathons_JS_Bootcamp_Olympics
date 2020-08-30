@@ -4,5 +4,7 @@
     padding: $size-small;
     display: flex;
     flex-direction: column;
-    background-color: pink;
+    background-color: rgba($color-green-3,0.6);
+    // background-image: url('../assets/icons/svg/000-wood-board.svg');
+    // background-position: center;
 }
