@@ -40,20 +40,20 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
     return (
         <div onClick={() => setShowMenu(false)} className="item-menu">
             {!showDeleteModal && (
-                <div className='item-menu__section'>
-                    <h1 className='item-menu__title'>Item</h1>
-                    <span
-                        className="item-menu__close"
-                        onClick={() => setShowMenu(false)}
-                        onMouseEnter={() => setHovered(true)}
-                        onMouseLeave={() => setHovered(false)}
-                    >
-                        <Katana
-                            hovered={hovered}
-                            className="item-menu__katana"
-                        />
-                    </span>
+                <div className="item-menu__section">
+                    <h1 className="item-menu__title">Item</h1>
                     <ul className="item-menu__ul">
+                        <span
+                            className="item-menu__close"
+                            onClick={() => setShowMenu(false)}
+                            onMouseEnter={() => setHovered(true)}
+                            onMouseLeave={() => setHovered(false)}
+                        >
+                            <Katana
+                                hovered={hovered}
+                                className="item-menu__katana"
+                            />
+                        </span>
                         <li
                             className="item-menu__li item-menu__svg--animated"
                             onClick={handleEdit}

@@ -4,7 +4,11 @@ export const ITEM_TYPE = 'ITEM';
 export const COLUMN_TYPE = 'COLUMN';
 
 export interface AppProps {
+    items?: Item[];
+    columns?: Column[];
     modalOpen: (data: ItemReducer) => void;
+    setItems: (data: ItemReducer) => void;
+    setColumns: (data: ItemReducer) => void;
 }
 
 export interface Item {
@@ -84,6 +88,8 @@ export interface ItemReducer {
     mode?: string;
     itemId?: string;
     columnTitle?: string;
+    items?: any;
+    columns?: any;
 }
 
 export interface ItemMenuProps {
