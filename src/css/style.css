@@ -1241,6 +1241,10 @@ main::-webkit-scrollbar-thumb:horizontal {
   cursor: pointer;
 }
 
+.header__title-block:hover > .header__title {
+  color: #cccccc;
+}
+
 .header__title-block:hover > .header__logo {
   background-image: url("../assets/icons/svg/023-ninja-4.svg");
 }
@@ -1250,10 +1254,6 @@ main::-webkit-scrollbar-thumb:horizontal {
   margin: 0 5rem;
   font-size: 3rem;
   color: #032119;
-}
-
-.header__title:hover {
-  color: #cccccc;
 }
 
 @media (max-width: 73.45em) {
@@ -1322,7 +1322,7 @@ main::-webkit-scrollbar-thumb:horizontal {
     height: 2rem;
   }
   .header__title {
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
     font-size: 1.2rem;
   }
 }
@@ -1401,4 +1401,3 @@ main::-webkit-scrollbar-thumb:horizontal {
     font-size: 0.5rem;
   }
 }
-/*# sourceMappingURL=style.css.map */

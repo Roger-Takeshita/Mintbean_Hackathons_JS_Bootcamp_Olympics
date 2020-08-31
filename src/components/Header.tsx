@@ -7,14 +7,12 @@ const Header: React.FC<HeaderLandingProps> = ({ showBoard, setShowBoard }) => {
         <div className="header">
             <div className="header__logo-box">
                 <img src={board} alt="board" className="header__board" />
-                <div className="header__title-block">
+                <div
+                    className="header__title-block"
+                    onClick={() => setShowBoard(!showBoard)}
+                >
                     <div className="header__logo"></div>
-                    <h1
-                        className="header__title"
-                        onClick={() => setShowBoard(!showBoard)}
-                    >
-                        The Ninja Board
-                    </h1>
+                    <h1 className="header__title">The Ninja Board</h1>
                     <div className="header__logo"></div>
                 </div>
                 <img src={board} alt="board" className="header__board" />

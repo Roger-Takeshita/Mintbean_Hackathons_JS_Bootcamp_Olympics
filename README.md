@@ -20,6 +20,5 @@ Our mission is to finish our enemies (clan MVP)
   npm i react-dnd-html5-backend
   npm i redux
   npm i react-redux
-  npm i react-modal
   npm i typescript
 ```
