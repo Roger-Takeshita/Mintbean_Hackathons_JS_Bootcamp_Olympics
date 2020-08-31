@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.fb3f65eb.chunk.css",
-    "main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.b6524d5d.chunk.js",
-    "main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.b6524d5d.chunk.js.map",
+    "main.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.4caeb6b4.chunk.css",
+    "main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js",
+    "main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js.map",
     "runtime-main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/runtime-main.dfea2b81.js",
     "runtime-main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/runtime-main.dfea2b81.js.map",
     "static/js/2.c4449e36.chunk.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js",
     "static/js/2.c4449e36.chunk.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.map",
     "index.html": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/index.html",
-    "precache-manifest.5ebb43c5db60fcd878f2d02ef60b1d39.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.5ebb43c5db60fcd878f2d02ef60b1d39.js",
+    "precache-manifest.00b2749c15cd30d641218ca9761b43b4.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.00b2749c15cd30d641218ca9761b43b4.js",
     "service-worker.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/service-worker.js",
-    "static/css/main.fb3f65eb.chunk.css.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.fb3f65eb.chunk.css.map",
+    "static/css/main.4caeb6b4.chunk.css.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.4caeb6b4.chunk.css.map",
     "static/js/2.c4449e36.chunk.js.LICENSE.txt": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.LICENSE.txt",
     "static/media/000-board.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/000-board.3096277f.svg",
     "static/media/style.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/bamboo-2.34a3a491.jpg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.dfea2b81.js",
     "static/js/2.c4449e36.chunk.js",
-    "static/css/main.fb3f65eb.chunk.css",
-    "static/js/main.b6524d5d.chunk.js"
+    "static/css/main.4caeb6b4.chunk.css",
+    "static/js/main.8d338d28.chunk.js"
   ]
 }

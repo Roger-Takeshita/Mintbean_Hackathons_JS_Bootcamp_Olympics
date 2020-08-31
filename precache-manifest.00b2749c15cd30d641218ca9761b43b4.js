@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "822704501eea62aac4f7a5e12a3e51f2",
+    "revision": "ef2b4c552df37c2317e8ef7d5b06725e",
     "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/index.html"
   },
   {
-    "revision": "1864a925b17e471f3068",
-    "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.fb3f65eb.chunk.css"
+    "revision": "dae59e18e0c9c1214746",
+    "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.4caeb6b4.chunk.css"
   },
   {
     "revision": "4bada5a0aae8b6781e7e",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1864a925b17e471f3068",
-    "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.b6524d5d.chunk.js"
+    "revision": "dae59e18e0c9c1214746",
+    "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js"
   },
   {
     "revision": "a27c165fd2df24513dc3",
