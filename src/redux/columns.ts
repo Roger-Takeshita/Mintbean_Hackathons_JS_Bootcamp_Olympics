@@ -31,7 +31,20 @@ export const deleteColumn = (id: ItemReducer) => ({
     payload: id,
 });
 
-const initialState: Column[] = [];
+const initialState: Column[] = [
+    {
+        columnId: uuidv4(),
+        columnTitle: 'To Do',
+    },
+    {
+        columnId: uuidv4(),
+        columnTitle: 'In Progress',
+    },
+    {
+        columnId: uuidv4(),
+        columnTitle: 'Done',
+    },
+];
 
 function columnsReducer(
     state = initialState,
