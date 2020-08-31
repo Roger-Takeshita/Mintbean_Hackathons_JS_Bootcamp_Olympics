@@ -4,9 +4,6 @@ import {
     COLUMN_TYPE,
     ColumnProps,
     ColumnItem,
-    MoveItProps,
-    Column,
-    Item,
     ItemReducer,
 } from '../utils/types';
 import { connect } from 'react-redux';

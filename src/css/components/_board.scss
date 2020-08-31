@@ -1,0 +1,28 @@
+.board__add {
+    background-color: rgba($color-green-3,0.6);
+    height: 15rem;
+    width: 25rem;
+    margin-top: $size-small;
+    padding: $size-xsmall $size-small;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    &-title {
+        color: $color-white;
+        font-size: resize($default-font-size, 2.2);
+        letter-spacing: 1.1px;
+        margin-top: -1.5rem;
+    }
+    &-btn {
+        display: block;
+        margin: $size-small auto;
+    }
+    &-sticks-plus {
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(45deg);
+    }
+}
