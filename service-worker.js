@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.aaeeaff0c7c12786a2db5b164a6e1c31.js"
+  "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.2e4bfa142584cb64636b9a47d2b379cb.js"
 );
 
 self.addEventListener('message', (event) => {
