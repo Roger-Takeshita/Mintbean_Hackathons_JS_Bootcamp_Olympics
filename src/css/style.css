@@ -1247,6 +1247,7 @@ main::-webkit-scrollbar-thumb:horizontal {
 
 .header__title-block:hover > .header__logo {
   background-image: url("../assets/icons/svg/023-ninja-4.svg");
+  color: #cccccc;
 }
 
 .header__title {
@@ -1341,7 +1342,7 @@ main::-webkit-scrollbar-thumb:horizontal {
           align-items: center;
   color: #fff;
   padding: 0 5rem;
-  z-index: 2;
+  z-index: 3;
 }
 
 .footer__attribution-box {
@@ -1401,3 +1402,4 @@ main::-webkit-scrollbar-thumb:horizontal {
     font-size: 0.5rem;
   }
 }
+/*# sourceMappingURL=style.css.map */
