@@ -1,4 +1,18 @@
-@mixin menu-style($padding) {
+@mixin menu-style($padding: $size-medium) {
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        cursor: pointer;
+    }
+    &__katana {
+        width: 2rem;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
     &__ul {
         background-color: $color-grey-1;
         width: 25%;
@@ -24,9 +38,6 @@
             border-bottom: none;
         }
     }
-}
-
-@mixin kunai-svg {
     &__svg {
         height: 3rem;
         position: absolute;

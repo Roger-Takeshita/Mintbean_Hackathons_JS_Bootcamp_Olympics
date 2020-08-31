@@ -64,14 +64,15 @@ function columnsReducer(
             const columnIndex = state.findIndex(
                 (each) => each.columnId === action.payload.columnId
             );
-            const nextUpdate = state.filter((each) => {
-                return each.columnId !== action.payload.columnId;
-            });
-            const updatedColumn = state[columnIndex];
-            updatedColumn!.columnTitle = action.payload.columnTitle!;
-            nextUpdate.splice(columnIndex, 0, updatedColumn);
+            const updateItem = state[columnIndex];
+            updateItem!.columnTitle = action.payload.columnTitle!;
+            const updatedState = [
+                ...state.slice(0, columnIndex),
+                updateItem,
+                ...state.slice(columnIndex + 1, state.length),
+            ];
 
-            return [...nextUpdate];
+            return updatedState;
         case DELETE_COLUMN:
             return state.filter((each) => {
                 return each.columnId !== action.payload.columnId;

@@ -101,6 +101,7 @@ function itemsReducer(
     switch (action.type) {
         case ADD_ITEM:
             const newItem = {
+                itemId: uuidv4(),
                 itemTitle: action.payload.itemTitle,
                 itemDescription: action.payload.itemDescription,
                 columnId: action.payload.columnId,
@@ -123,16 +124,17 @@ function itemsReducer(
             const itemIndex = state.findIndex(
                 (each) => each.itemId === action.payload.itemId
             );
-            const nextUpdate = state.filter((each) => {
-                return each.itemId !== action.payload.itemId;
-            });
-            const updatedItem = state[itemIndex];
-            updatedItem!.columnId = action.payload.columnId!;
-            updatedItem!.itemTitle = action.payload.itemTitle!;
-            updatedItem!.itemDescription = action.payload.itemDescription!;
-            nextUpdate.splice(itemIndex, 1, updatedItem);
+            const updateItem = state[itemIndex];
+            updateItem!.columnId = action.payload.columnId!;
+            updateItem!.itemTitle = action.payload.itemTitle!;
+            updateItem!.itemDescription = action.payload.itemDescription!;
+            const updatedState = [
+                ...state.slice(0, itemIndex),
+                updateItem,
+                ...state.slice(itemIndex + 1, state.length),
+            ];
 
-            return [...state, nextUpdate];
+            return updatedState;
         case UPDATE_ITEM_COLUMN:
             const nextItemColumn = state
                 .filter((each) => {

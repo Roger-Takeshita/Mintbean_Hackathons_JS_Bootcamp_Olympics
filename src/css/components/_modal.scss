@@ -26,6 +26,10 @@
         border-radius: $border-radius;
         z-index: 10;
     }
+    &__title {
+        margin-bottom: $size-small;
+        text-transform: uppercase;
+    }
     &__input {
         width: 100%;
         padding-left: $size-xsmall;
@@ -51,6 +55,20 @@
         padding-left: $size-xsmall;
         align-items: center;
         transition: all 0.3s;
+    }
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        cursor: pointer;
+    }
+    &__katana {
+        width: 2rem;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
     &__input:placeholder-shown + &__label {
         opacity: 0;

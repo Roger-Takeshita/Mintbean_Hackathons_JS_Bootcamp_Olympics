@@ -26,30 +26,32 @@ const MoveItem: React.FC<MoveItemsProps> = ({
     };
 
     return (
-        <div className="move-item">
-            <span
-                className="item-menu__close"
-                onClick={handleCloseMove}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-            >
-                <Katana hovered={hovered} className="item-menu__katana" />
-            </span>
-            <section className="move-item__section">
-                <h1 className="move-item__title">Move Item</h1>
-                <ul className="move-item__ul">
-                    {columns!.map((col) => (
-                        <li
-                            key={col.columnId}
-                            onClick={() => handleClick(col)}
-                            className="move-item__li move-item__svg--animated"
-                        >
-                            {col.columnTitle}
-                            <KunaiSVG className="move-item__svg" />
-                        </li>
-                    ))}
-                </ul>
-            </section>
+        <div className="move-item__bg" onClick={handleCloseMove}>
+            <div className="move-item">
+                <span
+                    className="move-item__close"
+                    onClick={handleCloseMove}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                >
+                    <Katana hovered={hovered} className="move-item__katana" />
+                </span>
+                <section className="move-item__section">
+                    <h1 className="move-item__title">Move Item</h1>
+                    <ul className="move-item__ul">
+                        {columns!.map((col) => (
+                            <li
+                                key={col.columnId}
+                                onClick={() => handleClick(col)}
+                                className="move-item__li move-item__svg--animated"
+                            >
+                                {col.columnTitle}
+                                <KunaiSVG className="move-item__svg" />
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            </div>
         </div>
     );
 };

@@ -12,13 +12,13 @@
     justify-content: center;
     color: $color-black;
     &__section {
-    position: relative;
-    border-radius: $border-radius-large;
-    z-index: 3;
-    background-color: $color-grey-1;
-    padding: $size-small;
-    text-align: center;
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+        position: relative;
+        border-radius: $border-radius-large;
+        z-index: 3;
+        background-color: $color-grey-1;
+        padding: $size-small;
+        text-align: center;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
     }
     &__katana {
         width: 2rem;
@@ -40,5 +40,4 @@
         cursor: pointer;
     }
     @include menu-style($size-small);
-    @include kunai-svg;
 }

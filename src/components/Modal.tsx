@@ -1,9 +1,16 @@
-import React, { useState, ChangeEvent, useEffect, MouseEvent } from 'react';
+import React, {
+    useState,
+    ChangeEvent,
+    useEffect,
+    MouseEvent,
+    FormEvent,
+} from 'react';
 import { ItemReducer, ModalProps } from '../utils/types';
 import { connect } from 'react-redux';
 import { modalClose } from '../redux/modal';
 import { addItem, updateItemInfo } from '../redux/items';
 import { addColumn, updateColumnInfo } from '../redux/columns';
+import Katana from '../assets/icons/svg/002-katana';
 
 const Modal: React.FC<ModalProps> = ({
     modal,
@@ -22,6 +29,7 @@ const Modal: React.FC<ModalProps> = ({
     };
     const [form, setForm] = useState(initialState);
     const [modeNow, setModeNow] = useState('');
+    const [hovered, setHovered] = useState(false);
 
     useEffect(() => {
         setForm(modal);
@@ -38,12 +46,14 @@ const Modal: React.FC<ModalProps> = ({
         });
     };
 
-    const handleClose = () => {
+    const handleClose = (evt: FormEvent | MouseEvent) => {
         setForm(initialState);
         modalClose();
+        evt.preventDefault();
     };
 
-    const handleUpdated = (evt: MouseEvent) => {
+    const handleUpdated = (evt: FormEvent | MouseEvent) => {
+        evt.preventDefault();
         setForm({ ...form, columnId: modal.columnId });
         if (modal.mode === 'add-column') {
             addColumn!(form.columnTitle);
@@ -55,7 +65,11 @@ const Modal: React.FC<ModalProps> = ({
             updateColumnInfo!(form);
         }
 
-        handleClose();
+        handleClose(evt);
+    };
+
+    const isFormValid = () => {
+        return !(form.itemTitle !== '' || form.columnTitle !== '');
     };
 
     return (
@@ -69,53 +83,84 @@ const Modal: React.FC<ModalProps> = ({
                 className="modal__modal-box"
                 onClick={(evt) => evt.stopPropagation()}
             >
-                <div className="modal__header">
-                    <input
-                        type="text"
-                        id="title"
-                        className="modal__input"
-                        placeholder="Title"
-                        value={form.itemTitle || form.columnTitle}
-                        onChange={handleChange}
-                        name={
-                            modeNow === 'add-item' || modeNow === 'update-item'
-                                ? 'itemTitle'
-                                : 'columnTitle'
-                        }
-                        required
-                    />
-                    <label htmlFor="title" className="modal__label">
-                        Title
-                    </label>
-                </div>
-                {modeNow === 'add-item' || modeNow === 'update-item' ? (
-                    <div className="modal__body">
-                        <textarea
-                            className="modal__input modal__input--description"
-                            placeholder="Description"
-                            autoComplete="off"
-                            id="description"
-                            name="itemDescription"
-                            data-gramm="false"
+                <form onSubmit={handleUpdated}>
+                    <div className="modal__header">
+                        <h1 className="modal__title">
+                            Add New {modeNow.split('-')[1]}
+                        </h1>
+                        <span
+                            className="modal__close"
+                            onClick={handleClose}
+                            onMouseEnter={() => setHovered(true)}
+                            onMouseLeave={() => setHovered(false)}
+                        >
+                            <Katana
+                                hovered={hovered}
+                                className="modal__katana"
+                            />
+                        </span>
+                        <input
+                            type="text"
+                            id="title"
+                            className="modal__input"
+                            placeholder="Title"
+                            value={form.itemTitle || form.columnTitle}
                             onChange={handleChange}
-                            spellCheck="false"
-                            value={form.itemDescription}
+                            name={
+                                modeNow === 'add-item' ||
+                                modeNow === 'update-item'
+                                    ? 'itemTitle'
+                                    : 'columnTitle'
+                            }
+                            required
                         />
-                        <label htmlFor="description" className="modal__label">
-                            Description
+                        <label htmlFor="title" className="modal__label">
+                            Title
                         </label>
                     </div>
-                ) : (
-                    ''
-                )}
-                <div className="modal__ctrl">
-                    <button className="btn btn--ok" onClick={handleUpdated}>
-                        Update
-                    </button>
-                    <button className="btn btn--cancel" onClick={handleClose}>
-                        Cancel
-                    </button>
-                </div>
+                    {modeNow === 'add-item' || modeNow === 'update-item' ? (
+                        <div className="modal__body">
+                            <textarea
+                                className="modal__input modal__input--description"
+                                placeholder="Description"
+                                autoComplete="off"
+                                id="description"
+                                name="itemDescription"
+                                data-gramm="false"
+                                onChange={handleChange}
+                                spellCheck="false"
+                                value={form.itemDescription}
+                            />
+                            <label
+                                htmlFor="description"
+                                className="modal__label"
+                            >
+                                Description
+                            </label>
+                        </div>
+                    ) : (
+                        ''
+                    )}
+                    <div className="modal__ctrl">
+                        <button
+                            type="submit"
+                            className={
+                                isFormValid()
+                                    ? 'btn btn--invalid'
+                                    : 'btn btn--ok'
+                            }
+                            disabled={isFormValid()}
+                        >
+                            Update
+                        </button>
+                        <button
+                            className="btn btn--cancel"
+                            onClick={handleClose}
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     );
