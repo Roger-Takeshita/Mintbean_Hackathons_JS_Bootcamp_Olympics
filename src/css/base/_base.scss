@@ -19,61 +19,22 @@ body {
     font-family: Shojumaru, sans-serif;
 }
 
+.page {
+    background-image: url('../assets/images/bamboo-2.jpg');
+    background-size: cover;
+}
+
 .app {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 2;
-    // background-image: linear-gradient(
-    //         to right bottom,
-    //         rgba($color-grey-1, 0.5),
-    //         rgba($color-grey-3, 0.5)
-    //     ),
-    //     url('../assets/images/bg.jpg');
-    // background-image: url('../assets/images/bg.jpg');
-    // background-image: url('../assets/icons/svg/018-dojo.svg');
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    &__add {
-        background-color: rgba($color-green-3,0.6);
-        height: 15rem;
-        margin-top: $size-small;
-        padding: $size-xsmall $size-small;
-        border-radius: $border-radius;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        &-title {
-            color: $color-white;
-            font-size: resize($default-font-size, 2.2);
-            letter-spacing: 1.1px;
-            margin-top: -1.5rem;
-        }
-        &-btn {
-            display: block;
-            margin: $size-small auto;
-        }
-        &-sticks-plus {
-        width: 2rem;
-        height: 2rem;
-        transform: rotate(45deg);
-    }
-    }
+    z-index: 1;
 }
 
-.background__bamboo {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    z-index: -2;
-}
 .background__dojo {
     position: absolute;
-    z-index: -1;
     width: 80vw;
     height: 80vh;
     bottom: 2.8rem;
@@ -82,7 +43,6 @@ body {
 }
 
 main {
-    height: 100%;
+    height: 89%;
     display: flex;
-    padding: $size-small;
 }

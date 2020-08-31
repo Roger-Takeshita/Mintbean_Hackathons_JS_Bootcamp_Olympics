@@ -1,0 +1,50 @@
+.landing {
+    background: rgba($color-green-3, 0.8);
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15rem;
+    z-index: 3;
+    &__box {
+        width: 38%;
+        color: $color-white;
+        text-align: center;
+    }
+    &__title {
+        font-size: resize($default-font-size, 4.6);
+        margin-top: 5rem;
+    }
+    &__subtitle {
+        font-size: resize($default-font-size, 2.8);
+        margin-top: 3rem;
+    }
+    &__text {
+        font-size: resize($default-font-size, 1.6);
+        margin-top: 3rem;
+        text-align: justify;
+        & span {
+            font-size: resize($default-font-size, 2.2);
+            color: $color-green-4;
+        }
+    }
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0 auto;
+        margin-top: 5rem;
+        height: 8rem;
+        width: 15rem;
+        background: $color-grey-1;
+        color: $color-green-4;
+        font-size: resize($default-font-size, 1.6);
+        font-family: inherit;
+        &-svg {
+            width: 3.5rem;
+            margin: $size-xsmall;
+        }
+    }
+    &__image {
+        height: 90%;
+    }
+}

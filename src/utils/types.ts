@@ -3,7 +3,7 @@ import { DropTargetMonitor } from 'react-dnd';
 export const ITEM_TYPE = 'ITEM';
 export const COLUMN_TYPE = 'COLUMN';
 
-export interface AppProps {
+export interface BoardProps {
     modalOpen: (data: ItemReducer) => void;
 }
 
@@ -126,8 +126,6 @@ export interface ColumnEditMenuProps {
 }
 
 export interface DeleteModalProps {
-    // showDeleteModal: boolean;
-    // setShowDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
     type: string;
     item?: Item;
     column?: Column;
@@ -136,4 +134,9 @@ export interface DeleteModalProps {
     deleteItem?: (data: ItemReducer) => void;
     deleteItems?: (data: ItemReducer) => void;
     deleteColumn?: (data: ItemReducer) => void;
+}
+
+export interface HeaderLandingProps {
+    showBoard: boolean;
+    setShowBoard: React.Dispatch<React.SetStateAction<boolean>>;
 }
