@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.4caeb6b4.chunk.css",
+    "main.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.a79fc3b1.chunk.css",
     "main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js",
     "main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js.map",
     "runtime-main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/runtime-main.dfea2b81.js",
@@ -8,9 +8,9 @@
     "static/js/2.c4449e36.chunk.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js",
     "static/js/2.c4449e36.chunk.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.map",
     "index.html": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/index.html",
-    "precache-manifest.00b2749c15cd30d641218ca9761b43b4.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.00b2749c15cd30d641218ca9761b43b4.js",
+    "precache-manifest.03a005ac17332d1bed41f5122bb93720.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.03a005ac17332d1bed41f5122bb93720.js",
     "service-worker.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/service-worker.js",
-    "static/css/main.4caeb6b4.chunk.css.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.4caeb6b4.chunk.css.map",
+    "static/css/main.a79fc3b1.chunk.css.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.a79fc3b1.chunk.css.map",
     "static/js/2.c4449e36.chunk.js.LICENSE.txt": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.LICENSE.txt",
     "static/media/000-board.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/000-board.3096277f.svg",
     "static/media/style.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/bamboo-2.34a3a491.jpg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.dfea2b81.js",
     "static/js/2.c4449e36.chunk.js",
-    "static/css/main.4caeb6b4.chunk.css",
+    "static/css/main.a79fc3b1.chunk.css",
     "static/js/main.8d338d28.chunk.js"
   ]
 }
