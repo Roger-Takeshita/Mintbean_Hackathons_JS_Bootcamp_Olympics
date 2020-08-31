@@ -138,11 +138,11 @@ body {
 }
 
 main {
-  height: 90%;
+  height: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   z-index: 3;
 }
 
@@ -229,7 +229,7 @@ main::-webkit-scrollbar-thumb:horizontal {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(0, 0, 0, 0.2);
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 55rem;
 }
 
@@ -829,6 +829,7 @@ main::-webkit-scrollbar-thumb:horizontal {
           box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
+  text-transform: capitalize;
 }
 
 .btn:hover {
@@ -1038,6 +1039,7 @@ main::-webkit-scrollbar-thumb:horizontal {
   font-size: 1.6rem;
   margin-top: 3rem;
   text-align: justify;
+  line-height: 2.6rem;
 }
 
 .landing__text span {

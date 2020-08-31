@@ -151,7 +151,7 @@ const Modal: React.FC<ModalProps> = ({
                             }
                             disabled={isFormValid()}
                         >
-                            Update
+                            {modeNow.split('-')[0]}
                         </button>
                         <button
                             className="btn btn--cancel"

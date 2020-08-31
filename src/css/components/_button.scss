@@ -10,6 +10,7 @@
     cursor: pointer;
     box-shadow: 0.5rem 0.5rem 1rem rgba($color-black, 0.3);
     transition: all 0.15s ease-in-out;
+    text-transform: capitalize;
 
     &:hover {
         transform: translateY(-0.25rem);

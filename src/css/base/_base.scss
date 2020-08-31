@@ -44,9 +44,9 @@ body {
 }
 
 main {
-    height: 90%;
+    height: 95%;
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     z-index: 3;
 
     &::-webkit-scrollbar {

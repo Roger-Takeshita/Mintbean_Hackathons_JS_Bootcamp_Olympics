@@ -23,6 +23,8 @@
         font-size: resize($default-font-size, 1.6);
         margin-top: 3rem;
         text-align: justify;
+        line-height: 2.6rem;
+
         & span {
             font-size: resize($default-font-size, 2.2);
             color: $color-green-4;
