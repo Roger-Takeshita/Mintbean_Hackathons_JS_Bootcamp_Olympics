@@ -14,11 +14,19 @@
         background-color: $color-grey-0;
         border-radius: $border-radius;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 $size-xsmall;
     }
     &__item-btn {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
+        // position: absolute;
+        // top: 0.5rem;
+        // right: 0.5rem;
+        border: none;
+    }
+    &__scroll {
+        width: 3rem;
     }
     &__paragraph {
         &--title {

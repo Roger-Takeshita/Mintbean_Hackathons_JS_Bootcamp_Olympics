@@ -16,6 +16,7 @@ body {
     box-sizing: border-box;
     position: relative;
     height: 100%;
+    font-family: Shojumaru, sans-serif;
 }
 
 .app {
@@ -36,6 +37,32 @@ body {
     // background-size: contain;
     // background-repeat: no-repeat;
     // background-position: center;
+    &__add {
+        background-color: rgba($color-green-3,0.6);
+        height: 15rem;
+        margin-top: $size-small;
+        padding: $size-xsmall $size-small;
+        border-radius: $border-radius;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &-title {
+            color: $color-white;
+            font-size: resize($default-font-size, 2.2);
+            letter-spacing: 1.1px;
+            margin-top: -1.5rem;
+        }
+        &-btn {
+            display: block;
+            margin: $size-small auto;
+        }
+        &-sticks-plus {
+        width: 2rem;
+        height: 2rem;
+        transform: rotate(45deg);
+    }
+    }
 }
 
 .background__bamboo {

@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
 
-    @include menu-style($size-medium);
+    @include menu-style($size-small);
     &__katana {
         width: 2rem;
         transition: all 0.3s;
@@ -19,6 +19,20 @@
         &:hover {
             transform: scale(1.2);
         }
+    }
+    &__section {
+        position: relative;
+        border-radius: $border-radius-large;
+        z-index: 3;
+        background-color: $color-grey-1;
+        padding: $size-small;
+        text-align: center;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.5);
+    }
+    &__title {
+        font-size: resize($default-font-size, 2.4);
+        text-transform: uppercase;
+        border-bottom: 1px solid $color-black;
     }
     &__close {
         position: absolute;

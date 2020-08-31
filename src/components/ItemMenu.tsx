@@ -40,7 +40,8 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
     return (
         <div onClick={() => setShowMenu(false)} className="item-menu">
             {!showDeleteModal && (
-                <ul className="item-menu__ul">
+                <div className='item-menu__section'>
+                    <h1 className='item-menu__title'>Item</h1>
                     <span
                         className="item-menu__close"
                         onClick={() => setShowMenu(false)}
@@ -52,28 +53,30 @@ const ItemMenu: React.FC<ItemMenuProps> = ({
                             className="item-menu__katana"
                         />
                     </span>
-                    <li
-                        className="item-menu__li item-menu__svg--animated"
-                        onClick={handleEdit}
-                    >
-                        Edit
-                        <KunaiSVG className="item-menu__svg" />
-                    </li>
-                    <li
-                        className="item-menu__li item-menu__svg--animated"
-                        onClick={handleMove}
-                    >
-                        Move
-                        <KunaiSVG className="item-menu__svg" />
-                    </li>
-                    <li
-                        className="item-menu__li item-menu__svg--animated"
-                        onClick={handleDelete}
-                    >
-                        Delete
-                        <KunaiSVG className="item-menu__svg" />
-                    </li>
-                </ul>
+                    <ul className="item-menu__ul">
+                        <li
+                            className="item-menu__li item-menu__svg--animated"
+                            onClick={handleEdit}
+                        >
+                            Edit
+                            <KunaiSVG className="item-menu__svg" />
+                        </li>
+                        <li
+                            className="item-menu__li item-menu__svg--animated"
+                            onClick={handleMove}
+                        >
+                            Move
+                            <KunaiSVG className="item-menu__svg" />
+                        </li>
+                        <li
+                            className="item-menu__li item-menu__svg--animated"
+                            onClick={handleDelete}
+                        >
+                            Delete
+                            <KunaiSVG className="item-menu__svg" />
+                        </li>
+                    </ul>
+                </div>
             )}
             {showMoveItem && (
                 <MoveItem
