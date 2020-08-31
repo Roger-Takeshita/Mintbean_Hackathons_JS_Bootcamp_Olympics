@@ -1,11 +1,17 @@
 import { Item, ItemReducer } from '../utils/types';
 import { v4 as uuidv4 } from 'uuid';
 const ADD_ITEM = 'ADD_ITEM';
+const ADD_ITEMS = 'ADD_ITEMS';
 const DELETE_ITEM = 'DELETE_ITEM';
 const DELETE_ITEMS = 'DELETE_ITEMS';
 const UPDATE_ITEM = 'UPDATE_ITEM';
 const UPDATE_ITEM_INFO = 'UPDATE_ITEM_INFO';
 const UPDATE_ITEM_COLUMN = 'UPDATE_ITEM_COLUMN';
+
+export const setItems = (data: ItemReducer) => ({
+    type: ADD_ITEMS,
+    payload: data,
+});
 
 export const addItem = (data: ItemReducer) => ({
     type: ADD_ITEM,
@@ -37,68 +43,15 @@ export const deleteItems = (data: ItemReducer) => ({
     payload: data,
 });
 
-const initialState: Item[] = [
-    {
-        itemId: uuidv4(),
-        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
-        itemTitle: 'First Item of column 1x1',
-        itemDescription: 'Description 1x1',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
-        itemTitle: 'First Item of column 1x2',
-        itemDescription: 'Description 1x2',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
-        itemTitle: 'First Item of column 1x3',
-        itemDescription: 'Description 1x3',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
-        itemTitle: 'Second Item of column 2x1',
-        itemDescription: 'Description 2x1',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
-        itemTitle: 'Second Item of column 2x2',
-        itemDescription: 'Description 2x2',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
-        itemTitle: 'Second Item of column 2x3',
-        itemDescription: 'Description 2x3',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
-        itemTitle: 'Third Item of column 3x1',
-        itemDescription: 'Description 3x1',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
-        itemTitle: 'Third Item of column 3x2',
-        itemDescription: 'Description 3x2',
-    },
-    {
-        itemId: uuidv4(),
-        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
-        itemTitle: 'Third Item of column 3x3',
-        itemDescription: 'Description 3x3',
-    },
-];
+const initialState: Item[] = [];
 
 function itemsReducer(
     state = initialState,
     action: { type: string; payload: ItemReducer }
 ) {
     switch (action.type) {
+        case ADD_ITEMS:
+            return [...action.payload.items];
         case ADD_ITEM:
             const newItem = {
                 itemId: uuidv4(),

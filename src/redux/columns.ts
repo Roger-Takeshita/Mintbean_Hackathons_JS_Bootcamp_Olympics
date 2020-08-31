@@ -1,9 +1,15 @@
-import { MoveItProps, ItemReducer } from '../utils/types';
+import { MoveItProps, ItemReducer, Column } from '../utils/types';
 import { v4 as uuidv4 } from 'uuid';
 const ADD_COLUMN = 'ADD_COLUMN';
+const ADD_COLUMNS = 'ADD_COLUMNS';
 const DELETE_COLUMN = 'DELETE_COLUMN';
 const UPDATE_COLUMN = 'UPDATE_COLUMN';
 const UPDATE_COLUMN_INFO = 'UPDATE_COLUMN_INFO';
+
+export const setColumns = (data: ItemReducer) => ({
+    type: ADD_COLUMNS,
+    payload: data,
+});
 
 export const addColumn = (data: {}) => ({
     type: ADD_COLUMN,
@@ -25,26 +31,15 @@ export const deleteColumn = (id: ItemReducer) => ({
     payload: id,
 });
 
-const initialState = [
-    {
-        columnId: 'a16fba42-88ae-4b18-b4e5-c48a58679c39',
-        columnTitle: 'To Do',
-    },
-    {
-        columnId: '3c28b6c7-5667-4c99-b231-eec63c20ae5d',
-        columnTitle: 'In Progress',
-    },
-    {
-        columnId: 'e6ff4872-9657-40c8-b15e-bc020d95de0a',
-        columnTitle: 'Done',
-    },
-];
+const initialState: Column[] = [];
 
 function columnsReducer(
     state = initialState,
     action: { type: string; payload: ItemReducer }
 ) {
     switch (action.type) {
+        case ADD_COLUMNS:
+            return [...action.payload.columns];
         case ADD_COLUMN:
             const newItem = { columnId: uuidv4(), columnTitle: action.payload };
 
