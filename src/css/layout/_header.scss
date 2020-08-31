@@ -27,6 +27,9 @@
         align-items: center;
         cursor: pointer;
     }
+    &__title-block:hover > &__title {
+        color: $color-grey-1;
+    }
     &__title-block:hover > &__logo {
         background-image: url('../assets/icons/svg/023-ninja-4.svg');
         color: $color-grey-1;
