@@ -1,5 +1,4 @@
 .col {
-    background-color: $color-grey-1;
     background-color: rgba($color-green-3,0.6);
     border-radius: $border-radius;
     width: 30rem;
@@ -11,9 +10,10 @@
         margin-left: $size-small;
     }
     &__header-box {
-        display: flex;
-        flex-grow: 1;
+        // display: flex;
+        // flex-grow: 1;
         height: 5rem;
+        padding: 1rem;
         color: $color-white;
     }
     &__column-btn {
@@ -47,6 +47,8 @@
         align-items: center;
         font-size: resize($default-font-size, 2.2);
         letter-spacing: 1.1px;
+        text-align: center;
+        font-family: Shojumaru, sans-serif;
     }
     &__ctrl-box {
         display: flex;

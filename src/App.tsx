@@ -6,8 +6,9 @@ import Modal from './components/Modal';
 import { connect } from 'react-redux';
 import { AppProps, ItemReducer } from './utils/types';
 import { modalOpen } from './redux/modal';
-import bamboo from './assets/images/bamboo-2.jpg'
-import dojo from './assets/icons/svg/018-dojo.svg'
+import bamboo from './assets/images/bamboo-2.jpg';
+import dojo from './assets/icons/svg/018-dojo.svg';
+import { ReactComponent as Sticks } from "./assets/icons/svg/004-sticks.svg";
 
 const App: React.FC<AppProps> = ({ modalOpen }) => {
     const handleAddColumn = (evt: MouseEvent) => {
@@ -24,9 +25,11 @@ const App: React.FC<AppProps> = ({ modalOpen }) => {
                 </header>
                 <main>
                     <ColumnWrapper />
-                    <div className="add">
-                        <h2>Add Column</h2>
-                        <button onClick={handleAddColumn}>+</button>
+                    <div className="app__add">
+                        <h2 className='app__add-title'>Add Column</h2>
+                        <button className='btn btn--add app__add-btn' onClick={handleAddColumn}>
+                            <Sticks className="app__add-sticks-plus" />
+                        </button>
                     </div>
                 </main>
                 <footer>

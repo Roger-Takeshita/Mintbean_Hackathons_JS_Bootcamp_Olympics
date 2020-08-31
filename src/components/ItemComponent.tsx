@@ -3,6 +3,7 @@ import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import { ITEM_TYPE, ItemProps, DragItem } from '../utils/types';
 import Window from './Window';
 import ItemMenu from './ItemMenu';
+import {ReactComponent as Scroll} from '../assets/icons/svg/042-scroll.svg'
 
 const ItemComponent: React.FC<ItemProps> = ({
     item,
@@ -63,10 +64,10 @@ const ItemComponent: React.FC<ItemProps> = ({
         <div className="item__container">
             <div ref={ref} className={`item ${opacity}`} onClick={onOpen}>
                 <div className="item__item-box">
-                    <button className="item__item-btn" onClick={handleMenu}>
-                        Menu
-                    </button>
                     <p className="item__paragraph--title">{item.itemTitle}</p>
+                    <button className="item__item-btn" onClick={handleMenu}>
+                        <Scroll className='item__scroll'/>
+                    </button>
                 </div>
             </div>
             {showMenu && <ItemMenu item={item} setShowMenu={setShowMenu} />}
