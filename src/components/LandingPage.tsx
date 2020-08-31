@@ -29,11 +29,13 @@ const LandingPage: React.FC<HeaderLandingProps> = ({
                         <Kunai className="landing__btn-svg" />
                     </button>
                 </div>
-                <img
-                    className="landing__image"
-                    src={ninjaTime}
-                    alt="ninja time management"
-                />
+                <div className='landing__image-container'>
+                    <img
+                        className="landing__image"
+                        src={ninjaTime}
+                        alt="ninja time management"
+                    />
+                </div>
             </div>
         </>
     );

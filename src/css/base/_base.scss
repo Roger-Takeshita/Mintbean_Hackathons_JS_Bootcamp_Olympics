@@ -34,13 +34,11 @@ body {
 
 .background__dojo {
     position: absolute;
-    width: 80rem;
-    height: 80rem;
-    bottom: 2.8rem;
+    width: 80%;
+    height: 80%;
     left: 50%;
     bottom: 2.6rem;
     transform: translateX(-50%);
-    z-index: 1;
 }
 
 main {

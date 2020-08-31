@@ -1,7 +1,7 @@
 .header {
     height: 5rem;
+    line-height: 5rem;
     background-color: rgba($color-green-3, 0.8);
-    padding: $size-small;
     display: flex;
     justify-content: center;
 
@@ -24,6 +24,7 @@
     }
     &__title-block {
         display: flex;
+        align-items: center;
         cursor: pointer;
     }
     &__title-block:hover > &__logo {
@@ -37,6 +38,69 @@
 
         &:hover {
             color: $color-grey-1;
+        }
+    }
+    @include mq-manager(tab-land) {
+        &__logo {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+        &__logo-box {
+            padding: 0;
+        }
+        &__board {
+            width: 4rem;
+            height: 4rem;
+        }
+            &__title {
+            margin: 0 3rem;
+            font-size: resize($default-font-size, 2.4);
+        }
+    }
+    @include mq-manager(tab-port) {
+        height: 4rem;
+        line-height: 4rem;
+        &__logo {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+        &__board {
+            width: 4rem;
+            height: 4rem;
+        }
+            &__title {
+            margin: 0 2rem;
+            font-size: resize($default-font-size, 1.8);
+        }
+    }
+    @include mq-manager(phone) {
+        height: 3rem;
+        line-height: 3rem;
+        &__logo {
+            width: 2rem;
+            height: 2rem;
+        }
+        &__board {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+            &__title {
+            margin: 0 1rem;
+            font-size: resize($default-font-size, 1.4);
+        }
+    }
+    @include mq-manager(mini) {
+        &__logo {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        &__board {
+            width: 2rem;
+            height: 2rem;
+        }
+        &__title {
+            margin: 0 .5rem;
+            font-size: resize($default-font-size, 1.2);
         }
     }
 }

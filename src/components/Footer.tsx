@@ -4,7 +4,7 @@ import { ReactComponent as NinjaBoySVG } from '../assets/icons/svg/035-ninja-6.s
 
 const Footer: React.FC = () => {
     return (
-        <div className="footer">
+        <footer className="footer">
             <div className="footer__attribution-box">
                 Icons made by&nbsp;
                 <a
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
                     </span>
                 </span>
             </div>
-        </div>
+        </footer>
     );
 };
 

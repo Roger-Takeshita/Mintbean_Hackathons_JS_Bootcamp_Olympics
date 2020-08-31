@@ -58,3 +58,36 @@
         animation-fill-mode: forwards;
     }
 }
+
+@mixin mq-manager($breakpoint) {
+    @if $breakpoint == mini {
+        @media (max-width: 26.56em) {
+            // 425px
+            @content;
+        }
+    }
+    @if $breakpoint == phone {
+        @media (max-width: 34.37em) {
+            // 550px
+            @content;
+        }
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 49em) {
+            // 784px
+            @content;
+        }
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 73.45em) {
+            // 1175px
+            @content;
+        }
+    }
+    @if $breakpoint == desk {
+        @media (max-width: 94.4em) {
+            // 1515px
+            @content;
+        }
+    }
+}

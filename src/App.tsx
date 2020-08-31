@@ -49,9 +49,7 @@ const App: React.FC<AppProps> = ({ items, columns, setItems, setColumns }) => {
                         />
                     )}
                 </main>
-                <footer>
-                    <Footer />
-                </footer>
+                <Footer />
                 <Modal />
             </div>
         </div>

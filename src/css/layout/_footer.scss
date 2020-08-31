@@ -6,7 +6,7 @@
     align-items: center;
     color: $color-white;
     padding: 0 5rem;
-    z-index: 10;
+    z-index: 2;
 
     &__attribution-box {
         color: $color-grey-3;
@@ -34,6 +34,33 @@
 
         &:hover {
             color: $color-green-2;
+        }
+    }
+    @include mq-manager(tab-port) {
+        justify-content: center;
+        &__attribution-box {
+            display: none;
+        }
+    }
+    @include mq-manager(phone) {
+        &__dev {
+            &--developed {
+                font-size: resize($default-font-size, 1.1);
+            }
+        }
+        &__dev-link {
+            font-size: resize($default-font-size, 0.9);
+        }
+    }
+    @include mq-manager(mini) {
+        padding: 0;
+        &__dev {
+            &--developed {
+                font-size: resize($default-font-size, 0.8);
+            }
+        }
+        &__dev-link {
+            font-size: resize($default-font-size, 0.5);
         }
     }
 }
