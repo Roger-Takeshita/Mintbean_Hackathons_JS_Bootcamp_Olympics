@@ -29,16 +29,13 @@
     }
     &__title-block:hover > &__logo {
         background-image: url('../assets/icons/svg/023-ninja-4.svg');
+        color: $color-grey-1;
     }
     &__title {
         display: inline;
         margin: 0 5rem;
         font-size: resize($default-font-size, 3);
         color: $color-green-4;
-
-        &:hover {
-            color: $color-grey-1;
-        }
     }
     @include mq-manager(tab-land) {
         &__logo {
@@ -52,7 +49,7 @@
             width: 4rem;
             height: 4rem;
         }
-            &__title {
+        &__title {
             margin: 0 3rem;
             font-size: resize($default-font-size, 2.4);
         }
@@ -68,7 +65,7 @@
             width: 4rem;
             height: 4rem;
         }
-            &__title {
+        &__title {
             margin: 0 2rem;
             font-size: resize($default-font-size, 1.8);
         }
@@ -84,7 +81,7 @@
             width: 2.5rem;
             height: 2.5rem;
         }
-            &__title {
+        &__title {
             margin: 0 1rem;
             font-size: resize($default-font-size, 1.4);
         }
@@ -99,7 +96,7 @@
             height: 2rem;
         }
         &__title {
-            margin: 0 .5rem;
+            margin: 0 0.5rem;
             font-size: resize($default-font-size, 1.2);
         }
     }
