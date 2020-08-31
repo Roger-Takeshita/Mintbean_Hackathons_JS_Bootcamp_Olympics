@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState, useEffect } from 'react';
+import React, { MouseEvent } from 'react';
 import { connect } from 'react-redux';
 import { DeleteModalProps, ItemReducer } from '../utils/types';
 import { deleteColumn } from '../redux/columns';

@@ -1,22 +1,17 @@
-import React, { MouseEvent, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Board from './components/Board';
 import LandingPage from './components/LandingPage';
 import { connect } from 'react-redux';
-import { AppProps, ItemReducer, Column, Item } from './utils/types';
+import { AppProps, ItemReducer } from './utils/types';
 import dojo from './assets/icons/svg/018-dojo.svg';
 import { setItems } from './redux/items';
 import { setColumns } from './redux/columns';
 
-const App: React.FC<AppProps> = ({
-    items,
-    columns,
-    setItems,
-    setColumns,
-}) => {
-  const [showBoard, setShowBoard] = useState(false);
+const App: React.FC<AppProps> = ({ items, columns, setItems, setColumns }) => {
+    const [showBoard, setShowBoard] = useState(false);
 
     useEffect(() => {
         const items = localStorage.getItem('ninja');
@@ -29,7 +24,7 @@ const App: React.FC<AppProps> = ({
                 setColumns({ columns: data.columns });
             }
         }
-    }, []);
+    }, [setItems, setColumns]);
 
     useEffect(() => {
         if (columns?.length! > 0) {
@@ -38,14 +33,21 @@ const App: React.FC<AppProps> = ({
     }, [items, columns]);
 
     return (
-        <div className='page'>
+        <div className="page">
             <img className="background__dojo" src={dojo} alt="background-2" />
             <div className="app">
                 <header>
-                    <Header setShowBoard={setShowBoard} showBoard={showBoard}/>
+                    <Header setShowBoard={setShowBoard} showBoard={showBoard} />
                 </header>
                 <main>
-                    {showBoard ? <Board/> : <LandingPage setShowBoard={setShowBoard} showBoard={showBoard}/>}
+                    {showBoard ? (
+                        <Board />
+                    ) : (
+                        <LandingPage
+                            setShowBoard={setShowBoard}
+                            showBoard={showBoard}
+                        />
+                    )}
                 </main>
                 <footer>
                     <Footer />
@@ -62,7 +64,6 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    modalOpen: (data: ItemReducer) => dispatch(modalOpen(data)),
     setItems: (data: ItemReducer) => dispatch(setItems(data)),
     setColumns: (data: ItemReducer) => dispatch(setColumns(data)),
 });

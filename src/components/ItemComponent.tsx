@@ -67,7 +67,11 @@ const ItemComponent: React.FC<ItemProps> = ({
 
     return (
         <div className="item__container">
-            <div ref={ref} className={`item ${opacity}`} onClick={onOpen}>
+            <div
+                ref={ref}
+                className={`item ${opacity} item__grab-${opacity}`}
+                onClick={onOpen}
+            >
                 <div
                     className="item__item-box"
                     onContextMenu={handleRightClick}

@@ -3,9 +3,8 @@ import { DropTargetMonitor } from 'react-dnd';
 export const ITEM_TYPE = 'ITEM';
 export const COLUMN_TYPE = 'COLUMN';
 
-
 export interface BoardProps {
-  modalOpen: (data: ItemReducer) => void;
+    modalOpen: (data: ItemReducer) => void;
 }
 
 export interface AppProps {
@@ -28,7 +27,6 @@ export interface Column {
 }
 
 export interface ColumnWrapperProps {
-    // onDropColumn: (item: any, monitor: DropTargetMonitor, columnId: number) => void;
     columns: Column[];
     updateColumn: (data: MoveItProps) => void;
 }

@@ -4,7 +4,15 @@
     padding: $size-small;
     display: flex;
     flex-direction: column;
-    background-color: rgba($color-black,0.2);
-    // background-image: url('../assets/icons/svg/000-wood-board.svg');
-    // background-position: center;
+    background-color: rgba($color-black, 0.2);
+    overflow-y: scroll;
+    max-height: 55rem;
+
+    &::-webkit-scrollbar {
+        background: inherit;
+        width: 1rem;
+    }
+    &::-webkit-scrollbar-thumb:vertical {
+        background: rgba(0, 0, 0, 0.5);
+    }
 }

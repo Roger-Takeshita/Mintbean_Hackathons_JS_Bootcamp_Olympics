@@ -5,9 +5,16 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    max-height: 95%;
 
     &:not(:first-child) {
         margin-left: $size-small;
+    }
+    &__grab-0 {
+        cursor: grabbing;
+    }
+    &__grab-1 {
+        cursor: grab;
     }
     &__header-box {
         height: 5rem;

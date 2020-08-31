@@ -15,19 +15,28 @@
         width: 3.5rem;
         height: 3.5rem;
         background-image: url('../assets/icons/svg/001-ninja.svg');
-        &:hover {
-            background-image: url('../assets/icons/svg/023-ninja-4.svg');
-        }
+        transition: all 0.2s ease-out;
     }
     &__board {
         width: 4rem;
         height: 4rem;
         margin: 0 $size-small;
     }
+    &__title-block {
+        display: flex;
+        cursor: pointer;
+    }
+    &__title-block:hover > &__logo {
+        background-image: url('../assets/icons/svg/023-ninja-4.svg');
+    }
     &__title {
         display: inline;
         margin: 0 5rem;
         font-size: resize($default-font-size, 3);
         color: $color-green-4;
+
+        &:hover {
+            color: $color-grey-1;
+        }
     }
 }

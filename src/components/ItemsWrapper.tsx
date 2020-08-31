@@ -12,16 +12,11 @@ const ItemsWrapper: React.FC<ItemsWrapperProps> = ({
     items,
     updateItem,
 }) => {
-    const [{ isOver, canDrop }, drop] = useDrop({
+    const [, drop] = useDrop({
         accept: ITEM_TYPE,
         drop: (item, monitor) => {
             onDropItem(item, monitor, columnId);
         },
-        //! Usar pra mudar CSS
-        // collect: (monitor) => ({
-        //     isOver: monitor.isOver(),
-        //     canDrop: monitor.canDrop()
-        // })
     });
 
     const moveItem = (dragIndex: number, hoverIndex: number, item: any) => {
@@ -41,6 +36,8 @@ const ItemsWrapper: React.FC<ItemsWrapperProps> = ({
                             columnId={columnId}
                         />
                     );
+                } else {
+                    return null;
                 }
             })}
         </div>

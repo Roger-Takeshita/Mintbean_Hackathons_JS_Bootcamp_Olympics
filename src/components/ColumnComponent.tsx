@@ -80,9 +80,15 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     };
 
     return (
-        <div ref={ref} className={`col ${opacity} ${hovering}`}>
+        <div
+            ref={ref}
+            className={`col ${opacity} ${hovering} col__grab-${opacity}`}
+        >
             <div className="col__col-individual">
-                <div className="col__header-box" onContextMenu={handleButtonEditColumn}>
+                <div
+                    className="col__header-box"
+                    onContextMenu={handleButtonEditColumn}
+                >
                     <div className="col__title">{column.columnTitle}</div>
                     <button
                         className="col__column-btn"
@@ -101,7 +107,10 @@ const ColumnComponent: React.FC<ColumnProps> = ({
                     columnId={column.columnId}
                     onDropItem={onDropItem}
                 />
-                <div className="col__ctrl-box" onContextMenu={handleButtonAddItem}>
+                <div
+                    className="col__ctrl-box"
+                    onContextMenu={handleButtonAddItem}
+                >
                     <button
                         className="btn btn--add btn--animated"
                         onClick={handleButtonAddItem}

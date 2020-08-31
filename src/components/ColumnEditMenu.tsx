@@ -3,8 +3,8 @@ import { ColumnEditMenuProps, ItemReducer } from '../utils/types';
 import { connect } from 'react-redux';
 import { modalOpen } from '../redux/modal';
 import DeleteModal from './DeleteModal';
-import Katana from "../assets/icons/svg/002-katana";
-import { ReactComponent as KunaiSVG } from "../assets/icons/svg/020-kunai.svg";
+import Katana from '../assets/icons/svg/002-katana';
+import { ReactComponent as KunaiSVG } from '../assets/icons/svg/020-kunai.svg';
 
 const ColumnEditMenu: React.FC<ColumnEditMenuProps> = ({
     column,
@@ -36,21 +36,26 @@ const ColumnEditMenu: React.FC<ColumnEditMenuProps> = ({
     };
 
     return (
-        <div
-            className="col-edit-menu"
-            onClick={handleClose}
-        >
+        <div className="col-edit-menu" onClick={handleClose}>
             {!showDeleteModal && (
-                <div className='col-edit-menu__section'>
-                    <span className='col-edit-menu__close animated--hover'
-                        onClick={handleClose} 
+                <div className="col-edit-menu__section">
+                    <span
+                        className="col-edit-menu__close animated--hover"
+                        onClick={handleClose}
                         onMouseEnter={() => setHovered(true)}
-                        onMouseLeave={() => setHovered(false)}>
-                        <Katana hovered={hovered} className="col-edit-menu__katana" />
+                        onMouseLeave={() => setHovered(false)}
+                    >
+                        <Katana
+                            hovered={hovered}
+                            className="col-edit-menu__katana"
+                        />
                     </span>
-                    <h1 className='col-edit-menu__title'>Column</h1>
+                    <h1 className="col-edit-menu__title">Column</h1>
                     <ul className="col-edit-menu__ul">
-                        <li className="col-edit-menu__li col-edit-menu__svg--animated" onClick={handleEdit}>
+                        <li
+                            className="col-edit-menu__li col-edit-menu__svg--animated"
+                            onClick={handleEdit}
+                        >
                             Edit
                             <KunaiSVG className="col-edit-menu__svg" />
                         </li>
@@ -66,8 +71,6 @@ const ColumnEditMenu: React.FC<ColumnEditMenuProps> = ({
             )}
             {showDeleteModal && (
                 <DeleteModal
-                    // showDeleteModal={showDeleteModal}
-                    // setShowDeleteModal={setShowDeleteModal}
                     type="column"
                     column={column}
                     onClose={handleSubModal}

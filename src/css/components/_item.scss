@@ -3,6 +3,12 @@
     flex-direction: column;
     width: 100%;
 
+    &__grab-0 {
+        cursor: grabbing;
+    }
+    &__grab-1 {
+        cursor: grab;
+    }
     &__container {
         &:not(:first-child) {
             margin-top: $size-xsmall;

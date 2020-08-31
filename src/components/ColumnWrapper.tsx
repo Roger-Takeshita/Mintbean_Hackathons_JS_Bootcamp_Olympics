@@ -14,7 +14,7 @@ const ColumnWrapper: React.FC<ColumnWrapperProps> = ({
     columns,
     updateColumn,
 }) => {
-    const [{ isOver, canDrop }, drop] = useDrop({
+    const [{ isOver }, drop] = useDrop({
         accept: COLUMN_TYPE,
     });
 
