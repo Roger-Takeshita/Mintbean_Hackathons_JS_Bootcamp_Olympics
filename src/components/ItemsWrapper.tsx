@@ -28,27 +28,21 @@ const ItemsWrapper: React.FC<ItemsWrapperProps> = ({
         updateItem({ dragIndex, hoverIndex, item });
     };
 
-    // const isActive = isOver && canDrop;
-
-    // const thisColumnItems =
-
     return (
         <div ref={drop} className="item-wrapper">
-            {items
-                // .filter((item) => item.columnId === columnId)
-                .map((item, idx) => {
-                    if (item.columnId === columnId) {
-                        return (
-                            <ItemComponent
-                                key={idx}
-                                item={item}
-                                index={idx}
-                                moveIt={moveItem}
-                                columnId={columnId}
-                            />
-                        );
-                    }
-                })}
+            {items.map((item, idx) => {
+                if (item.columnId === columnId) {
+                    return (
+                        <ItemComponent
+                            key={idx}
+                            item={item}
+                            index={idx}
+                            moveIt={moveItem}
+                            columnId={columnId}
+                        />
+                    );
+                }
+            })}
         </div>
     );
 };

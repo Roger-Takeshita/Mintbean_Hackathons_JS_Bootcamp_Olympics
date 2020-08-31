@@ -20,9 +20,6 @@
         padding: 0 $size-xsmall;
     }
     &__item-btn {
-        // position: absolute;
-        // top: 0.5rem;
-        // right: 0.5rem;
         border: none;
     }
     &__scroll {
@@ -30,7 +27,7 @@
     }
     &__paragraph {
         &--title {
-            font-size: resize($default-font-size, 1.6);
+            font-size: resize($default-font-size, 1.2);
             height: 5rem;
             line-height: 5rem;
             white-space: nowrap;

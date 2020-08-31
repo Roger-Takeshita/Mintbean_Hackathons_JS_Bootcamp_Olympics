@@ -1,7 +1,7 @@
 .col {
-    background-color: rgba($color-green-3,0.6);
+    background-color: rgba($color-green-3, 0.6);
     border-radius: $border-radius;
-    width: 30rem;
+    width: 35rem;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -10,8 +10,6 @@
         margin-left: $size-small;
     }
     &__header-box {
-        // display: flex;
-        // flex-grow: 1;
         height: 5rem;
         padding: 1rem;
         color: $color-white;
@@ -29,9 +27,8 @@
             outline: none;
         }
     }
-    &__scrolls{
+    &__scrolls {
         width: 3rem;
-        // height: 2rem;
     }
     &__col-individual {
         display: flex;
