@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd150871c369cd9a4042793e5a0d0e85",
+    "revision": "71fef2a9fe96cf375069d77f5749c563",
     "url": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/index.html"
   },
   {
