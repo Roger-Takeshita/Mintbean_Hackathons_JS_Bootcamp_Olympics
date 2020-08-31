@@ -184,6 +184,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 2rem;
 }
 
 .item {
@@ -527,6 +528,7 @@ main {
   letter-spacing: 1.1px;
   text-align: center;
   font-family: Shojumaru, sans-serif;
+  color: #cccccc;
 }
 
 .col__ctrl-box {
@@ -1008,13 +1010,19 @@ main {
 }
 
 .header {
-  height: 3rem;
+  height: 5rem;
   background-color: rgba(74, 84, 77, 0.8);
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header__logo-box {
   height: 100%;
-  background-color: red;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1022,6 +1030,29 @@ main {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 2rem;
+}
+
+.header__logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-image: url("../assets/icons/svg/001-ninja.svg");
+}
+
+.header__logo:hover {
+  background-image: url("../assets/icons/svg/023-ninja-4.svg");
+}
+
+.header__board {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 2rem;
+}
+
+.header__title {
+  display: inline;
+  margin: 0 5rem;
+  font-size: 3rem;
+  color: #032119;
 }
 
 .footer {
@@ -1065,3 +1096,4 @@ main {
 .footer__dev-link:hover {
   color: #3e752d;
 }
+/*# sourceMappingURL=style.css.map */

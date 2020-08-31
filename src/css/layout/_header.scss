@@ -1,12 +1,38 @@
 .header {
-    height: 3rem;
+    height: 5rem;
     background-color: rgba($color-green-3, 0.8);
+    padding: $size-small;
+    display: flex;
+    justify-content: center;
 
     &__logo-box {
         height: 100%;
-        background-color: red;
         display: inline-flex;
         align-items: center;
         padding: 0 $size-small;
+    }
+    &__logo {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-image: url('../assets/icons/svg/001-ninja.svg');
+        &:hover {
+            background-image: url('../assets/icons/svg/023-ninja-4.svg');
+        }
+    }
+    &__board {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 $size-small;
+        // background-image: url('../assets/icons/svg/000-board.svg');
+        // background-size: contain;
+        // &:hover {
+        //     background-image: url('../assets/icons/svg/032-training.svg');
+        // }
+    }
+    &__title {
+        display: inline;
+        margin: 0 5rem;
+        font-size: resize($default-font-size, 3);
+        color: $color-green-4;
     }
 }
