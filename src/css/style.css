@@ -60,6 +60,28 @@
   }
 }
 
+@-webkit-keyframes rotate-icon {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-icon {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -199,6 +221,7 @@ main {
 
 .item__item-btn {
   border: none;
+  cursor: pointer;
 }
 
 .item__scroll {
@@ -812,6 +835,11 @@ main {
           box-shadow: 0.6rem 0.6rem 1.2rem rgba(0, 0, 0, 0.5);
 }
 
+.btn:hover svg {
+  -webkit-animation: rotate-icon infinite 10s linear;
+          animation: rotate-icon infinite 10s linear;
+}
+
 .btn:active {
   -webkit-transform: translateY(-0.1rem);
           transform: translateY(-0.1rem);
@@ -844,6 +872,10 @@ main {
           transform: translateY(0);
   -webkit-box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
           box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.btn--animated ~ svg {
+  background-color: red;
 }
 
 .window-modal {
@@ -934,6 +966,45 @@ main {
 .delete-modal__title--item {
   font-size: 1.6rem;
   font-weight: lighter;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip__tooltip-text {
+  visibility: hidden;
+  width: 12rem;
+  background-color: #6e6e6e;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  z-index: 1;
+  margin-left: -6rem;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.tooltip__tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -0.5rem;
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: #969696 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip__tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
 
 .header {

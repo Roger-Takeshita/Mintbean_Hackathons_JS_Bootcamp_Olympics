@@ -10,39 +10,32 @@ import {
 import { updateColumn } from '../redux/columns';
 import ColumnComponent from './ColumnComponent';
 
-const ColumnWrapper: React.FC<ColumnWrapperProps> =
-    // ({ onDropColumn,
-    ({ columns, updateColumn }) => {
-        const [{ isOver, canDrop }, drop] = useDrop({
-            accept: COLUMN_TYPE,
-            // drop: onDropColumn(column, monitor),
-            //! Usar pra mudar CSS
-            // collect: (monitor) => ({
-            //     isOver: monitor.isOver(),
-            //     canDrop: monitor.canDrop()
-            // })
-        });
+const ColumnWrapper: React.FC<ColumnWrapperProps> = ({
+    columns,
+    updateColumn,
+}) => {
+    const [{ isOver, canDrop }, drop] = useDrop({
+        accept: COLUMN_TYPE,
+    });
 
-        // const isActive = isOver && canDrop;
-
-        const moveColumn = (dragIndex: number, hoverIndex: number) => {
-            updateColumn({ dragIndex, hoverIndex });
-        };
-
-        return (
-            <div ref={drop} className="col-wrapper">
-                {columns.map((col: Column, idx: number) => (
-                    <ColumnComponent
-                        key={idx}
-                        column={col}
-                        index={idx}
-                        moveIt={moveColumn}
-                        isOver={isOver}
-                    />
-                ))}
-            </div>
-        );
+    const moveColumn = (dragIndex: number, hoverIndex: number) => {
+        updateColumn({ dragIndex, hoverIndex });
     };
+
+    return (
+        <div ref={drop} className="col-wrapper">
+            {columns.map((col: Column, idx: number) => (
+                <ColumnComponent
+                    key={idx}
+                    column={col}
+                    index={idx}
+                    moveIt={moveColumn}
+                    isOver={isOver}
+                />
+            ))}
+        </div>
+    );
+};
 
 const mapStateToProps = (state: any) => ({
     columns: state.columns,

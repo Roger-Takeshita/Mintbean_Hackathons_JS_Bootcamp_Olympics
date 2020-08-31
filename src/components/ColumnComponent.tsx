@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, MouseEvent } from 'react';
 import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
 import {
     COLUMN_TYPE,
@@ -14,8 +14,8 @@ import { updateItemColumn } from '../redux/items';
 import ItemsWrapper from './ItemsWrapper';
 import ColumnEditMenu from './ColumnEditMenu';
 import { modalOpen } from '../redux/modal';
-import { ReactComponent as Sticks } from '../assets/icons/svg/004-sticks.svg'
-import { ReactComponent as Scrolls } from '../assets/icons/svg/026-scrolls.svg'
+import { ReactComponent as Sticks } from '../assets/icons/svg/004-sticks.svg';
+import { ReactComponent as Scrolls } from '../assets/icons/svg/026-scrolls.svg';
 
 const ColumnComponent: React.FC<ColumnProps> = ({
     isOver,
@@ -72,11 +72,13 @@ const ColumnComponent: React.FC<ColumnProps> = ({
 
     drag(drop(ref));
 
-    const handleButtonAddItem = () => {
+    const handleButtonAddItem = (evt: MouseEvent) => {
+        evt.preventDefault();
         modalOpen({ mode: 'add-item', columnId: column.columnId });
     };
 
-    const handleButtonEditColumn = () => {
+    const handleButtonEditColumn = (evt: MouseEvent) => {
+        evt.preventDefault();
         setShowEditMenu(!showEditMenu);
     };
 
@@ -88,8 +90,9 @@ const ColumnComponent: React.FC<ColumnProps> = ({
                     <button
                         className="col__column-btn"
                         onClick={handleButtonEditColumn}
+                        onContextMenu={handleButtonEditColumn}
                     >
-                        <Scrolls className='col__scrolls' />
+                        <Scrolls className="col__scrolls" />
                     </button>
                     {showEditMenu && (
                         <ColumnEditMenu
@@ -104,8 +107,9 @@ const ColumnComponent: React.FC<ColumnProps> = ({
                 />
                 <div className="col__ctrl-box">
                     <button
-                        className="btn btn--add"
+                        className="btn btn--add btn--animated"
                         onClick={handleButtonAddItem}
+                        onContextMenu={handleButtonAddItem}
                     >
                         <Sticks className="col__sticks-plus" />
                     </button>

@@ -8,17 +8,18 @@ import { AppProps, ItemReducer } from './utils/types';
 import { modalOpen } from './redux/modal';
 import bamboo from './assets/images/bamboo-2.jpg';
 import dojo from './assets/icons/svg/018-dojo.svg';
-import { ReactComponent as Sticks } from "./assets/icons/svg/004-sticks.svg";
+import { ReactComponent as Sticks } from './assets/icons/svg/004-sticks.svg';
 
 const App: React.FC<AppProps> = ({ modalOpen }) => {
     const handleAddColumn = (evt: MouseEvent) => {
+        evt.preventDefault();
         modalOpen({ mode: 'add-column' });
     };
 
     return (
         <>
-            <img className='background__bamboo' src={bamboo} alt='background' />
-            <img className='background__dojo' src={dojo} alt='background-2' />
+            <img className="background__bamboo" src={bamboo} alt="background" />
+            <img className="background__dojo" src={dojo} alt="background-2" />
             <div className="app">
                 <header>
                     <Header />
@@ -26,8 +27,12 @@ const App: React.FC<AppProps> = ({ modalOpen }) => {
                 <main>
                     <ColumnWrapper />
                     <div className="app__add">
-                        <h2 className='app__add-title'>Add Column</h2>
-                        <button className='btn btn--add app__add-btn' onClick={handleAddColumn}>
+                        <h2 className="app__add-title">Add Column</h2>
+                        <button
+                            className="btn btn--add app__add-btn"
+                            onClick={handleAddColumn}
+                            onContextMenu={handleAddColumn}
+                        >
                             <Sticks className="app__add-sticks-plus" />
                         </button>
                     </div>
