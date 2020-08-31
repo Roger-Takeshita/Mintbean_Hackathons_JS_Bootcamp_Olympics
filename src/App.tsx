@@ -26,12 +26,11 @@ const App: React.FC<AppProps> = ({ modalOpen }) => {
                 </header>
                 <main>
                     <ColumnWrapper />
-                    <div className="app__add">
+                    <div className="app__add" onContextMenu={handleAddColumn}>
                         <h2 className="app__add-title">Add Column</h2>
                         <button
                             className="btn btn--add app__add-btn"
                             onClick={handleAddColumn}
-                            onContextMenu={handleAddColumn}
                         >
                             <Sticks className="app__add-sticks-plus" />
                         </button>
