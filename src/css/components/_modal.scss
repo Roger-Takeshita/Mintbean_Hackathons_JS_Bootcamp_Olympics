@@ -84,4 +84,11 @@
         justify-content: flex-end;
         margin-top: $size-xsmall;
     }
+
+    @include mq-manager(phone) {
+        &__modal-box {
+            width: 100%;
+            padding: $size-xsmall;
+        }
+    }
 }

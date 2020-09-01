@@ -105,13 +105,19 @@ body {
   font-family: Shojumaru, sans-serif;
 }
 
-.page {
-  background-image: url("../assets/images/bamboo-2.jpg");
-  background-size: cover;
+header {
+  z-index: 3;
 }
 
 .app {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/bamboo-2.jpg");
+  background-size: cover;
+  background-position: bottom;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,17 +128,38 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.app__background-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  background-image: url("../assets/images/bg_dojo.png");
+  background-size: cover;
+  background-position: bottom;
   z-index: 1;
 }
 
-.background__dojo {
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  left: 50%;
-  bottom: 2.6rem;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+.app__background-2--hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.app__background-2--visible {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+}
+
+@media (max-width: 49em) {
+  .app__background-2 {
+    bottom: 4rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
 main {
@@ -813,6 +840,13 @@ main::-webkit-scrollbar-thumb:horizontal {
   margin-top: 1rem;
 }
 
+@media (max-width: 34.37em) {
+  .modal__modal-box {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
 .btn {
   width: 7.5rem;
   border-radius: 0.5rem;
@@ -1204,6 +1238,7 @@ main::-webkit-scrollbar-thumb:horizontal {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 3;
 }
 
 .header__logo-box {
@@ -1295,10 +1330,6 @@ main::-webkit-scrollbar-thumb:horizontal {
 }
 
 @media (max-width: 34.37em) {
-  .header {
-    height: 3rem;
-    line-height: 3rem;
-  }
   .header__logo {
     width: 2rem;
     height: 2rem;
@@ -1402,4 +1433,3 @@ main::-webkit-scrollbar-thumb:horizontal {
     font-size: 0.5rem;
   }
 }
-/*# sourceMappingURL=style.css.map */

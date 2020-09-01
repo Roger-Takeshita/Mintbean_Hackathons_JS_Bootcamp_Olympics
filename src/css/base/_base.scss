@@ -19,26 +19,51 @@ body {
     font-family: Shojumaru, sans-serif;
 }
 
-.page {
-    background-image: url('../assets/images/bamboo-2.jpg');
-    background-size: cover;
+header {
+    z-index: 3;
 }
 
 .app {
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/bamboo-2.jpg');
+    background-size: cover;
+    background-position: bottom;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 1;
-}
 
-.background__dojo {
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    left: 50%;
-    bottom: 2.6rem;
-    transform: translateX(-50%);
+    &__background-2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 2rem;
+        background-image: url('../assets/images/bg_dojo.png');
+        background-size: cover;
+        background-position: bottom;
+        z-index: 1;
+
+        &--hidden {
+            display: none;
+            visibility: hidden;
+        }
+        &--visible {
+            display: flex;
+            visibility: visible;
+        }
+    }
+
+    @include mq-manager(tab-port) {
+        &__background-2 {
+            bottom: 4rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
 }
 
 main {

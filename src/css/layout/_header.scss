@@ -4,6 +4,7 @@
     background-color: rgba($color-green-3, 0.8);
     display: flex;
     justify-content: center;
+    z-index: 3;
 
     &__logo-box {
         height: 100%;
@@ -74,8 +75,6 @@
         }
     }
     @include mq-manager(phone) {
-        height: 3rem;
-        line-height: 3rem;
         &__logo {
             width: 2rem;
             height: 2rem;

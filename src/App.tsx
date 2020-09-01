@@ -6,7 +6,6 @@ import Board from './components/Board';
 import LandingPage from './components/LandingPage';
 import { connect } from 'react-redux';
 import { AppProps, ItemReducer } from './utils/types';
-import dojo from './assets/icons/svg/018-dojo.svg';
 import { setItems } from './redux/items';
 import { setColumns } from './redux/columns';
 
@@ -33,25 +32,31 @@ const App: React.FC<AppProps> = ({ items, columns, setItems, setColumns }) => {
     }, [items, columns]);
 
     return (
-        <div className="page">
-            <img className="background__dojo" src={dojo} alt="background-2" />
-            <div className="app">
-                <header>
-                    <Header setShowBoard={setShowBoard} showBoard={showBoard} />
-                </header>
-                <main>
-                    {showBoard ? (
-                        <Board />
-                    ) : (
-                        <LandingPage
-                            setShowBoard={setShowBoard}
-                            showBoard={showBoard}
-                        />
-                    )}
-                </main>
-                <Footer />
-                <Modal />
+        <div className="app">
+            <div
+                className={
+                    showBoard
+                        ? 'app__background-2 app__background-2--visible'
+                        : 'app__background-2 app__background-2--hidden'
+                }
+            >
+                &nbsp;
             </div>
+            <header>
+                <Header setShowBoard={setShowBoard} showBoard={showBoard} />
+            </header>
+            <main>
+                {showBoard ? (
+                    <Board />
+                ) : (
+                    <LandingPage
+                        setShowBoard={setShowBoard}
+                        showBoard={showBoard}
+                    />
+                )}
+            </main>
+            <Footer />
+            <Modal />
         </div>
     );
 };

@@ -16,14 +16,10 @@
             color: $color-grey-3;
         }
     }
-    &__developer-box {
-    }
     &__dev {
         &--developed {
             font-family: DancingScript-Bold, sans-serif;
             font-size: resize($default-font-size, 1.5);
-        }
-        &--name {
         }
     }
     &__dev-link {
