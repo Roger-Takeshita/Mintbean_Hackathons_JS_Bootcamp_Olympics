@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.0e9d1441.chunk.css",
-    "main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js",
-    "main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.8d338d28.chunk.js.map",
+    "main.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.fe124d3d.chunk.css",
+    "main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.9f6f6987.chunk.js",
+    "main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/main.9f6f6987.chunk.js.map",
     "runtime-main.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/runtime-main.dfea2b81.js",
     "runtime-main.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/runtime-main.dfea2b81.js.map",
-    "static/js/2.c4449e36.chunk.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js",
-    "static/js/2.c4449e36.chunk.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.map",
+    "static/js/2.ea1372de.chunk.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.ea1372de.chunk.js",
+    "static/js/2.ea1372de.chunk.js.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.ea1372de.chunk.js.map",
     "index.html": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/index.html",
-    "precache-manifest.2e4bfa142584cb64636b9a47d2b379cb.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.2e4bfa142584cb64636b9a47d2b379cb.js",
+    "precache-manifest.b136a2247ef22ce5b5e17e9ea5e599e4.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/precache-manifest.b136a2247ef22ce5b5e17e9ea5e599e4.js",
     "service-worker.js": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/service-worker.js",
-    "static/css/main.0e9d1441.chunk.css.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.0e9d1441.chunk.css.map",
-    "static/js/2.c4449e36.chunk.js.LICENSE.txt": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.c4449e36.chunk.js.LICENSE.txt",
+    "static/css/main.fe124d3d.chunk.css.map": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/css/main.fe124d3d.chunk.css.map",
+    "static/js/2.ea1372de.chunk.js.LICENSE.txt": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/js/2.ea1372de.chunk.js.LICENSE.txt",
     "static/media/000-board.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/000-board.3096277f.svg",
     "static/media/style.css": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/bamboo-2.34a3a491.jpg",
     "static/media/004-sticks.9a567234.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/004-sticks.9a567234.svg",
     "static/media/017-ninja-2.62d03110.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/017-ninja-2.62d03110.svg",
-    "static/media/018-dojo.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/018-dojo.35b94406.svg",
     "static/media/020-kunai.764a8b75.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/020-kunai.764a8b75.svg",
     "static/media/021-kunai-1.3b740101.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/021-kunai-1.3b740101.svg",
     "static/media/026-scrolls.5cc8c36d.svg": "/Mintbean_Hackathons_JS_Bootcamp_Olympics/static/media/026-scrolls.5cc8c36d.svg",
@@ -26,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.dfea2b81.js",
-    "static/js/2.c4449e36.chunk.js",
-    "static/css/main.0e9d1441.chunk.css",
-    "static/js/main.8d338d28.chunk.js"
+    "static/js/2.ea1372de.chunk.js",
+    "static/css/main.fe124d3d.chunk.css",
+    "static/js/main.9f6f6987.chunk.js"
   ]
 }
